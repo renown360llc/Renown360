@@ -36,14 +36,14 @@ export const metadata: Metadata = {
     siteName: SITE.fullName,
     title: `${SITE.fullName} — Enterprise IT Consulting & Staffing`,
     description: SITE.description,
-    images: [{ url: "/og-image.png", width: 1200, height: 630, alt: SITE.fullName }],
+    images: [{ url: "/logo.jpeg", width: 1200, height: 630, alt: SITE.fullName }],
   },
   twitter: {
     card: "summary_large_image",
     title: `${SITE.fullName} — Enterprise IT Consulting & Staffing`,
     description: SITE.description,
     creator: "@renown360",
-    images: ["/og-image.png"],
+    images: ["/logo.jpeg"],
   },
   robots: { index: true, follow: true, googleBot: { index: true, follow: true } },
 };
