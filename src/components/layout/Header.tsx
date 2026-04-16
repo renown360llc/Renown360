@@ -10,53 +10,6 @@ import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/Button";
 import { AnimatePresence, motion } from "framer-motion";
 
-const TICKER_ITEMS = [
-  "Senior Java Developer placed with a Fortune 500 bank · 3 days ago",
-  "SAP S/4HANA consultant matched for manufacturing client · 1 week ago",
-  "AWS Cloud Architect placed — remote position · 5 days ago",
-  "Data Engineer (Databricks) onboarded for healthcare firm · 2 days ago",
-  "Salesforce Developer placed in Charlotte, NC · 4 days ago",
-  "3 Java engineers placed across eastern US · 6 days ago",
-];
-
-function Ticker() {
-  const [index, setIndex] = useState(0);
-
-  useEffect(() => {
-    const t = setInterval(() => setIndex((i) => (i + 1) % TICKER_ITEMS.length), 3800);
-    return () => clearInterval(t);
-  }, []);
-
-  return (
-    <div className="border-b border-white/10 py-1.5 px-4 overflow-hidden">
-      <div className="max-w-7xl mx-auto flex items-center justify-center gap-3">
-        <div className="flex items-center gap-1.5 shrink-0">
-          <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
-          <span className="text-[10px] font-bold tracking-widest uppercase hidden sm:block text-white/40">
-            Live Activity
-          </span>
-        </div>
-        <div className="h-4 overflow-hidden relative flex-1 max-w-lg">
-          <AnimatePresence mode="wait">
-            <motion.div
-              key={index}
-              initial={{ y: 16, opacity: 0 }}
-              animate={{ y: 0, opacity: 1 }}
-              exit={{ y: -16, opacity: 0 }}
-              transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
-              className="flex items-center gap-1.5 absolute inset-0"
-            >
-              <CheckCircle2 className="w-3 h-3 shrink-0 text-emerald-400" />
-              <span className="text-[11px] truncate font-medium text-white/60">
-                {TICKER_ITEMS[index]}
-              </span>
-            </motion.div>
-          </AnimatePresence>
-        </div>
-      </div>
-    </div>
-  );
-}
 
 export function Header() {
   const [isOpen, setIsOpen] = useState(false);
@@ -77,12 +30,12 @@ export function Header() {
     <header
       className={cn(
         "fixed top-0 left-0 right-0 z-50 transition-all duration-300",
-        scrolled
+        scrolled || pathname !== "/"
           ? "bg-brand-navy/95 backdrop-blur-md border-b border-white/10 shadow-[0_4px_32px_-4px_rgba(0,0,0,0.5)]"
           : "bg-transparent"
       )}
     >
-      <Ticker />
+
 
       <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-14 lg:h-16">
