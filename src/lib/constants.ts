@@ -184,7 +184,7 @@ export const STATS = [
   { value: 100, suffix: "+", label: "Active Consultants" },
   { value: 50,  suffix: "+", label: "Enterprise Clients" },
   { value: 98,  suffix: "%", label: "Client Satisfaction" },
-  { value: 6,   suffix: "",  label: "Practice Areas" },
+  { value: 14,  suffix: "mo", label: "Avg. Retention" },
 ];
 
 export const VALUES = [

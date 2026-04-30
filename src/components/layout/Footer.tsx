@@ -1,6 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
-import { Mail, Phone, MapPin, Linkedin, Twitter } from "lucide-react";
+import { Mail, Phone, MapPin } from "lucide-react";
 import { SERVICES, SITE } from "@/lib/constants";
 
 const company = [
@@ -23,19 +23,18 @@ export function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 pb-12 border-b border-white/10">
           {/* Brand */}
           <div className="lg:col-span-2 flex flex-col gap-5">
-            <Link href="/" className="flex items-center gap-2.5 w-fit">
+            <Link href="/" className="flex items-center gap-1.5 w-fit">
               <Image
-                src="/logo.jpeg"
+                src="/logo.png"
                 alt={SITE.name}
-                width={34}
-                height={34}
-                className="rounded-lg object-cover"
+                width={40}
+                height={40}
+                className="object-contain"
               />
               <span className="font-serif text-xl text-white">{SITE.name}</span>
             </Link>
             <p className="text-sm leading-relaxed max-w-sm text-white/60">
-              Enterprise IT consulting and staffing solutions. Pre-vetted talent,
-              cloud transformation, and ERP expertise. We deliver in under 10 days.
+              IT consulting and staffing for enterprises. We screen consultants in advance, keep them on bench, and place them within 10 days.
             </p>
             <div className="flex flex-col gap-2.5 text-sm">
               <a href={`tel:${SITE.phone}`} className="flex items-center gap-2.5 hover:text-white transition-colors">
@@ -50,22 +49,6 @@ export function Footer() {
                 <MapPin size={14} className="text-primary-muted shrink-0 mt-0.5" />
                 <span>{SITE.address.line1}, {SITE.address.city}, {SITE.address.state} {SITE.address.zip}</span>
               </span>
-            </div>
-            <div className="flex gap-3">
-              <a
-                href={SITE.social.linkedin}
-                className="w-8 h-8 rounded-full border border-white/15 flex items-center justify-center hover:bg-white/10 transition-colors"
-                aria-label="LinkedIn"
-              >
-                <Linkedin size={14} />
-              </a>
-              <a
-                href={SITE.social.twitter}
-                className="w-8 h-8 rounded-full border border-white/15 flex items-center justify-center hover:bg-white/10 transition-colors"
-                aria-label="Twitter"
-              >
-                <Twitter size={14} />
-              </a>
             </div>
           </div>
 

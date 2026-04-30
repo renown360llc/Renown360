@@ -6,14 +6,14 @@ import { ServicesSection } from "@/components/home/ServicesSection";
 import { HowWeEngage } from "@/components/home/HowWeEngage";
 import { StatsSection } from "@/components/home/StatsSection";
 import { BentoSection } from "@/components/home/BentoSection";
-import { CaseStudies } from "@/components/home/CaseStudies";
-import { Testimonials } from "@/components/home/Testimonials";
-import { TechStackSection } from "@/components/home/TechStackSection";
+import { Results } from "@/components/home/Results";
 import { IndustriesStrip } from "@/components/home/IndustriesStrip";
 import { CTASection } from "@/components/home/CTASection";
 
 export const metadata: Metadata = {
-  title: "Renown360 — Enterprise IT Consulting & Staffing Solutions",
+  title: "Renown360 — Enterprise IT Consulting & Staffing",
+  description:
+    "IT consulting and staffing for enterprises. Pre-screened consultants placed in under 10 days across cloud, ERP, data, and software engineering.",
 };
 
 export default function HomePage() {
@@ -26,9 +26,7 @@ export default function HomePage() {
       <HowWeEngage />
       <StatsSection />
       <BentoSection />
-      <CaseStudies />
-      <Testimonials />
-      <TechStackSection />
+      <Results />
       <IndustriesStrip />
       <CTASection />
     </>
