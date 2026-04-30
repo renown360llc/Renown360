@@ -1,85 +1,53 @@
 "use client";
 
-import Link from "next/link";
-import { motion } from "framer-motion";
-import {
-  Landmark, HeartPulse, Factory, ShoppingBag, Radio, Building2, ArrowRight,
-} from "lucide-react";
-import { INDUSTRIES } from "@/lib/constants";
+import { Landmark, HeartPulse, Factory, ShoppingBag, Radio, Building2 } from "lucide-react";
+import { FadeIn } from "@/components/ui/FadeIn";
 import { SectionLabel } from "@/components/ui/SectionLabel";
-import { FadeUp } from "@/components/ui/FadeUp";
+import { INDUSTRIES } from "@/lib/constants";
 
-const ICON_MAP: Record<string, React.ElementType> = {
+const iconMap: Record<string, React.ElementType> = {
   Landmark, HeartPulse, Factory, ShoppingBag, Radio, Building2,
-};
-
-const container = {
-  hidden: {},
-  show: { transition: { staggerChildren: 0.07, delayChildren: 0.05 } },
-};
-
-const tile = {
-  hidden: { opacity: 0, y: 20, scale: 0.95 },
-  show:   { opacity: 1, y: 0, scale: 1, transition: { duration: 0.5, ease: [0.22, 1, 0.36, 1] } },
 };
 
 export function IndustriesStrip() {
   return (
-    <section className="py-20 lg:py-24 bg-white overflow-hidden">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-6 mb-10">
-          <FadeUp>
-            <SectionLabel className="mb-3">Industries</SectionLabel>
-            <h2 className="text-3xl sm:text-4xl font-bold text-brand-navy tracking-tight">
-              Vertical Expertise
-            </h2>
-          </FadeUp>
-          <motion.div
-            initial={{ opacity: 0, x: 20 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
-          >
-            <Link
-              href="/industries"
-              className="inline-flex items-center gap-2 text-brand-cyan font-semibold text-sm hover:gap-3 transition-all duration-200 shrink-0"
-            >
-              All industries
-              <ArrowRight className="w-4 h-4" />
-            </Link>
-          </motion.div>
-        </div>
+    <section className="bg-surface py-20 md:py-28">
+      <div className="container-wide">
+        <FadeIn className="flex flex-col items-center gap-4 mb-14 text-center">
+          <SectionLabel>Industries</SectionLabel>
+          <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl text-ink">
+            Sector expertise that matters
+          </h2>
+          <p className="text-ink/60 text-base max-w-xl leading-relaxed">
+            We know the tools, compliance requirements, and pressures specific to your sector.
+          </p>
+        </FadeIn>
 
-        <motion.div
-          className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4"
-          variants={container}
-          initial="hidden"
-          whileInView="show"
-          viewport={{ once: true, margin: "-60px" }}
-        >
-          {INDUSTRIES.map((ind) => {
-            const Icon = ICON_MAP[ind.icon];
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+          {INDUSTRIES.map((ind, i) => {
+            const Icon = iconMap[ind.icon] ?? Building2;
             return (
-              <motion.div key={ind.slug} variants={tile}>
-                <Link
-                  href={`/industries#${ind.slug}`}
-                  className="group flex flex-col items-center gap-3 p-5 rounded-2xl border border-neutral-100 bg-neutral-50 hover:border-brand-cyan/30 hover:bg-white hover:shadow-card transition-all duration-300 text-center h-full"
-                >
-                  <motion.div
-                    className="w-11 h-11 rounded-xl bg-brand-cyan/10 flex items-center justify-center"
-                    whileHover={{ scale: 1.15, rotate: -6 }}
-                    transition={{ type: "spring", stiffness: 400, damping: 12 }}
-                  >
-                    {Icon && <Icon className="w-5 h-5 text-brand-cyan" />}
-                  </motion.div>
-                  <span className="text-xs font-semibold text-brand-navy leading-snug">
-                    {ind.title}
-                  </span>
-                </Link>
-              </motion.div>
+              <FadeIn key={ind.slug} delay={i * 0.07}>
+                <div className="group flex flex-col gap-4 p-7 rounded-3xl border border-line bg-white hover:border-primary/30 hover:bg-surface-green transition-all duration-200 h-full">
+                  <div className="w-10 h-10 rounded-xl bg-primary-light flex items-center justify-center">
+                    <Icon size={18} className="text-primary" />
+                  </div>
+                  <div>
+                    <h3 className="font-serif text-xl text-ink mb-1.5">{ind.title}</h3>
+                    <p className="text-sm text-ink/60 leading-relaxed">{ind.desc}</p>
+                  </div>
+                  <div className="flex flex-wrap gap-1.5 mt-auto pt-2">
+                    {ind.clients.map((c) => (
+                      <span key={c} className="px-2.5 py-1 text-xs rounded-full border border-line text-ink/50 font-medium">
+                        {c}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+              </FadeIn>
             );
           })}
-        </motion.div>
+        </div>
       </div>
     </section>
   );

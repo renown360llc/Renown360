@@ -1,162 +1,141 @@
 "use client";
 
-import { motion } from "framer-motion";
-import { Search, UserCheck, Rocket, ArrowRight } from "lucide-react";
+import Image from "next/image";
+import Link from "next/link";
+import { ArrowRight } from "lucide-react";
+import { FadeIn } from "@/components/ui/FadeIn";
 import { SectionLabel } from "@/components/ui/SectionLabel";
-import { FadeUp } from "@/components/ui/FadeUp";
 
 const steps = [
   {
     number: "01",
-    icon: Search,
-    title: "Discover",
-    subtitle: "Days 1–3",
-    desc: "We run a structured discovery: understand your tech stack, skill gaps, delivery timelines, and compliance requirements. No generic intake forms.",
-    color: "#0ea5e9",
-    glow: "rgba(14,165,233,0.15)",
+    days: "Days 1–3",
+    title: "Discovery",
+    desc: "We align on your requirements, technology stack, culture fit, and timelines. You get a single point of contact and a signed SOW before anything moves forward.",
+    image: "https://images.unsplash.com/photo-1556761175-b413da4baf72?auto=format&fit=crop&w=900&q=80",
+    objectPosition: "object-center",
   },
   {
     number: "02",
-    icon: UserCheck,
+    days: "Days 4–10",
     title: "Match",
-    subtitle: "Days 4–10",
-    desc: "Our team screens, interviews, and shortlists pre-vetted candidates from our active bench. You interview 2–3 finals — not 20 resumes.",
-    color: "#6366f1",
-    glow: "rgba(99,102,241,0.15)",
+    desc: "Our delivery team shortlists 2–3 pre-vetted consultants from our active bench, tailored to your exact brief. You interview and choose. No filler candidates, no pressure.",
+    image: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=900&q=80",
+    objectPosition: "object-top",   // fixed: face was cut off
   },
   {
     number: "03",
-    icon: Rocket,
+    days: "Day 11+",
     title: "Deliver",
-    subtitle: "Day 11+",
-    desc: "Consultant is onboarded, compliance is handled, and a dedicated delivery manager ensures performance throughout the engagement.",
-    color: "#10b981",
-    glow: "rgba(16,185,129,0.15)",
+    desc: "Your consultant is onboarded and contributing from day one. Weekly governance check-ins and a 30-day performance guarantee are included on every engagement.",
+    image: "https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=900&q=80",
+    objectPosition: "object-center",
   },
 ];
 
-const connector = {
-  hidden: { scaleX: 0, opacity: 0 },
-  show:   { scaleX: 1, opacity: 1, transition: { duration: 0.7, ease: [0.22, 1, 0.36, 1] } },
-};
-
 export function HowWeEngage() {
   return (
-    <section className="py-20 lg:py-28 bg-white overflow-hidden">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <FadeUp className="text-center max-w-2xl mx-auto mb-16">
-          <SectionLabel className="mx-auto mb-4">How We Engage</SectionLabel>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-brand-navy tracking-tight mb-4">
-            From Brief to Billable in{" "}
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-cyan to-indigo-500">
-              10 Days
-            </span>
+    <section className="bg-surface py-20 md:py-28">
+      <div className="container-wide">
+        {/* Heading */}
+        <FadeIn className="flex flex-col items-center gap-4 mb-20 text-center">
+          <SectionLabel>How it works</SectionLabel>
+          <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl text-ink max-w-2xl text-balance">
+            A proven process to achieve your biggest goals
           </h2>
-          <p className="text-neutral-500 leading-relaxed">
-            A repeatable, three-phase process that eliminates hiring friction and gets
-            the right people working on your programme — fast.
-          </p>
-        </FadeUp>
+        </FadeIn>
 
-        {/* Steps */}
+        {/* Alternating steps with center timeline */}
         <div className="relative">
-          {/* Connector line (desktop) */}
-          <div className="hidden lg:block absolute top-[52px] left-[16.6%] right-[16.6%] h-px z-0">
-            <motion.div
-              className="h-full origin-left"
-              style={{
-                background: "linear-gradient(90deg, #0ea5e9 0%, #6366f1 50%, #10b981 100%)",
-              }}
-              variants={connector}
-              initial="hidden"
-              whileInView="show"
-              viewport={{ once: true }}
-            />
-          </div>
+          {/* Vertical timeline line */}
+          <div className="hidden md:block absolute left-1/2 top-0 bottom-0 w-px bg-line -translate-x-1/2" />
 
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 relative z-10">
-            {steps.map((step, i) => {
-              const Icon = step.icon;
-              return (
-                <motion.div
-                  key={step.number}
-                  initial={{ opacity: 0, y: 36 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true, margin: "-40px" }}
-                  transition={{ duration: 0.6, delay: i * 0.15, ease: [0.22, 1, 0.36, 1] }}
-                  className="flex flex-col items-center text-center"
-                >
-                  {/* Icon circle */}
-                  <motion.div
-                    className="relative w-[104px] h-[104px] rounded-full flex items-center justify-center mb-6 shrink-0"
-                    style={{
-                      background: `radial-gradient(circle at center, ${step.glow} 0%, transparent 70%)`,
-                      boxShadow: `0 0 0 1px ${step.color}25, 0 0 32px ${step.color}18`,
-                    }}
-                    whileHover={{ scale: 1.06 }}
-                    transition={{ type: "spring", stiffness: 300, damping: 18 }}
-                  >
-                    <div
-                      className="w-16 h-16 rounded-full flex items-center justify-center"
-                      style={{ backgroundColor: `${step.color}18`, border: `1.5px solid ${step.color}35` }}
-                    >
-                      <Icon className="w-7 h-7" style={{ color: step.color }} />
-                    </div>
-                    {/* Step number badge */}
-                    <div
-                      className="absolute -top-1 -right-1 w-7 h-7 rounded-full flex items-center justify-center text-[11px] font-black text-white"
-                      style={{ backgroundColor: step.color }}
-                    >
-                      {i + 1}
-                    </div>
-                  </motion.div>
+          {steps.map((step, i) => {
+            const isEven = i % 2 === 0; // even = image left, odd = image right
 
-                  {/* Content */}
-                  <div className="max-w-xs">
-                    <div
-                      className="inline-block text-[11px] font-bold tracking-widest uppercase px-2.5 py-0.5 rounded-full mb-2"
-                      style={{ color: step.color, backgroundColor: `${step.color}12` }}
-                    >
-                      {step.subtitle}
-                    </div>
-                    <h3 className="text-xl font-bold text-brand-navy mb-2">{step.title}</h3>
-                    <p className="text-sm text-neutral-500 leading-relaxed">{step.desc}</p>
+            return (
+              <FadeIn key={step.number} delay={i * 0.08}>
+                <div className="relative grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-0 pb-20 last:pb-0">
+
+                  {/* Center number badge */}
+                  <div className="hidden md:flex absolute left-1/2 top-10 -translate-x-1/2 z-10 w-11 h-11 rounded-full bg-primary text-white items-center justify-center text-sm font-bold shadow-sm">
+                    {step.number}
                   </div>
 
-                  {/* Mobile arrow */}
-                  {i < steps.length - 1 && (
-                    <div className="lg:hidden mt-6 text-neutral-300">
-                      <ArrowRight className="w-5 h-5 rotate-90" />
+                  {/* Mobile number badge */}
+                  <div className="flex md:hidden items-center gap-3 mb-2">
+                    <div className="w-9 h-9 rounded-full bg-primary text-white flex items-center justify-center text-xs font-bold shrink-0">
+                      {step.number}
                     </div>
-                  )}
-                </motion.div>
-              );
-            })}
-          </div>
-        </div>
+                    <span className="text-xs font-semibold text-primary uppercase tracking-widest">{step.days}</span>
+                  </div>
 
-        {/* Bottom metric strip */}
-        <motion.div
-          className="mt-16 grid grid-cols-1 sm:grid-cols-3 gap-4"
-          initial={{ opacity: 0, y: 24 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6, delay: 0.3, ease: [0.22, 1, 0.36, 1] }}
-        >
-          {[
-            { metric: "< 10 days",  label: "Average time-to-placement" },
-            { metric: "2–3",        label: "Shortlisted candidates, not 20" },
-            { metric: "98%",        label: "Engagement completion rate" },
-          ].map((m) => (
-            <div
-              key={m.metric}
-              className="flex flex-col items-center justify-center text-center p-5 rounded-2xl bg-neutral-50 border border-neutral-200"
-            >
-              <span className="text-2xl font-black text-brand-navy mb-1">{m.metric}</span>
-              <span className="text-xs text-neutral-500 font-medium">{m.label}</span>
-            </div>
-          ))}
-        </motion.div>
+                  {/* LEFT column */}
+                  <div className={`md:pr-16 flex items-center ${isEven ? "" : "md:order-1"}`}>
+                    {isEven ? (
+                      /* Image on left for even steps */
+                      <div className="relative w-full h-64 md:h-80 rounded-3xl overflow-hidden">
+                        <Image
+                          src={step.image}
+                          alt={step.title}
+                          fill
+                          className={`object-cover ${step.objectPosition}`}
+                        />
+                      </div>
+                    ) : (
+                      /* Text on left for odd steps */
+                      <div className="flex flex-col gap-5 md:max-w-sm md:ml-auto">
+                        <span className="hidden md:block text-xs font-semibold uppercase tracking-widest text-primary">
+                          {step.days}
+                        </span>
+                        <h3 className="font-serif text-3xl md:text-4xl text-ink">{step.title}</h3>
+                        <p className="text-ink/60 text-base leading-relaxed">{step.desc}</p>
+                        <Link
+                          href="/contact"
+                          className="inline-flex items-center gap-2 text-sm font-semibold text-ink hover:text-primary transition-colors w-fit group"
+                        >
+                          Get started
+                          <ArrowRight size={14} className="group-hover:translate-x-0.5 transition-transform" />
+                        </Link>
+                      </div>
+                    )}
+                  </div>
+
+                  {/* RIGHT column */}
+                  <div className={`md:pl-16 flex items-center ${isEven ? "" : "md:order-2"}`}>
+                    {isEven ? (
+                      /* Text on right for even steps */
+                      <div className="flex flex-col gap-5 md:max-w-sm">
+                        <span className="hidden md:block text-xs font-semibold uppercase tracking-widest text-primary">
+                          {step.days}
+                        </span>
+                        <h3 className="font-serif text-3xl md:text-4xl text-ink">{step.title}</h3>
+                        <p className="text-ink/60 text-base leading-relaxed">{step.desc}</p>
+                        <Link
+                          href="/contact"
+                          className="inline-flex items-center gap-2 text-sm font-semibold text-ink hover:text-primary transition-colors w-fit group"
+                        >
+                          Get started
+                          <ArrowRight size={14} className="group-hover:translate-x-0.5 transition-transform" />
+                        </Link>
+                      </div>
+                    ) : (
+                      /* Image on right for odd steps */
+                      <div className="relative w-full h-64 md:h-80 rounded-3xl overflow-hidden">
+                        <Image
+                          src={step.image}
+                          alt={step.title}
+                          fill
+                          className={`object-cover ${step.objectPosition}`}
+                        />
+                      </div>
+                    )}
+                  </div>
+                </div>
+              </FadeIn>
+            );
+          })}
+        </div>
       </div>
     </section>
   );

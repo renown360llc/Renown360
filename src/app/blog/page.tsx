@@ -1,139 +1,121 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { ArrowRight, Clock, Tag } from "lucide-react";
-import { BLOG_POSTS } from "@/lib/blog";
+import { ArrowRight, Clock } from "lucide-react";
 import { SectionLabel } from "@/components/ui/SectionLabel";
-import { CTASection } from "@/components/home/CTASection";
+import { FadeIn } from "@/components/ui/FadeIn";
 
-export const metadata: Metadata = {
-  title: "Blog & Insights",
-  description:
-    "IT hiring guides, cloud migration best practices, and enterprise technology insights from the Renown360 consulting team.",
+export const metadata: Metadata = { title: "Blog" };
+
+const posts = [
+  {
+    slug: "staffing-enterprise-java",
+    category: "Staffing",
+    title: "How to Staff Enterprise Java Projects in Under 2 Weeks",
+    excerpt: "A practical guide to the pre-vetting model that lets Renown360 deliver qualified Java engineers in under 10 days for Fortune 500 engagements.",
+    readTime: "5 min read",
+    date: "April 2025",
+  },
+  {
+    slug: "cloud-migration-aws-hipaa",
+    category: "Cloud",
+    title: "HIPAA-Compliant AWS Migration: Lessons from a 40TB Healthcare Project",
+    excerpt: "How our team migrated a major hospital network's clinical data to AWS with zero downtime and full HIPAA compliance — completed in 7 weeks.",
+    readTime: "7 min read",
+    date: "March 2025",
+  },
+  {
+    slug: "sap-s4hana-rollout",
+    category: "ERP",
+    title: "SAP S/4HANA Rollout Across 6 Plants: What We Learned",
+    excerpt: "Running a multi-site SAP implementation with minimal production disruption. The planning, execution, and post-go-live lessons from a manufacturing deployment.",
+    readTime: "8 min read",
+    date: "March 2025",
+  },
+  {
+    slug: "genai-enterprise-readiness",
+    category: "Data & AI",
+    title: "Is Your Enterprise Ready for GenAI? A Practical Readiness Framework",
+    excerpt: "Beyond the hype — a structured approach to evaluating your data maturity, governance, and infrastructure before deploying LLMs in production.",
+    readTime: "6 min read",
+    date: "February 2025",
+  },
+  {
+    slug: "devops-finops-cloud-cost",
+    category: "DevOps",
+    title: "DevOps Meets FinOps: Cutting Cloud Spend Without Slowing Delivery",
+    excerpt: "Practical techniques our cloud architects use to reduce AWS/Azure costs by 20–35% without impacting engineering velocity.",
+    readTime: "5 min read",
+    date: "February 2025",
+  },
+  {
+    slug: "digital-transformation-cxo",
+    category: "Strategy",
+    title: "What CXOs Get Wrong About Digital Transformation",
+    excerpt: "The most common strategic mistakes we see — and how to reframe transformation programmes around measurable business outcomes, not technology adoption.",
+    readTime: "6 min read",
+    date: "January 2025",
+  },
+];
+
+const categoryColors: Record<string, string> = {
+  Staffing: "bg-blue-50 text-blue-700",
+  Cloud:    "bg-sky-50 text-sky-700",
+  ERP:      "bg-violet-50 text-violet-700",
+  "Data & AI": "bg-emerald-50 text-emerald-700",
+  DevOps:   "bg-orange-50 text-orange-700",
+  Strategy: "bg-primary-light text-primary",
 };
-
-const CATEGORY_COLORS: Record<string, { text: string; bg: string }> = {
-  "IT Staffing": { text: "#0ea5e9", bg: "rgba(14,165,233,0.1)" },
-  "Cloud":       { text: "#6366f1", bg: "rgba(99,102,241,0.1)" },
-  "ERP":         { text: "#f59e0b", bg: "rgba(245,158,11,0.1)" },
-  "Industry":    { text: "#10b981", bg: "rgba(16,185,129,0.1)" },
-};
-
-function formatDate(iso: string) {
-  return new Date(iso).toLocaleDateString("en-US", {
-    year: "numeric", month: "long", day: "numeric",
-  });
-}
 
 export default function BlogPage() {
-  const [featured, ...rest] = BLOG_POSTS;
-  const colors = (cat: string) => CATEGORY_COLORS[cat] ?? { text: "#64748b", bg: "rgba(100,116,139,0.1)" };
-
   return (
     <>
-      {/* Hero */}
-      <section className="bg-hero-gradient pt-32 pb-20 lg:pt-40 lg:pb-24 relative overflow-hidden">
-        <div className="absolute top-1/3 right-1/4 w-[500px] h-[500px] bg-brand-cyan/8 rounded-full blur-[120px]" />
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-3xl">
-            <SectionLabel className="mb-5">Insights</SectionLabel>
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white tracking-tight leading-[1.1] mb-6">
-              IT Hiring &amp;{" "}
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-cyan to-brand-cyan-light">
-                Technology Insights
-              </span>
+      <section className="bg-surface pt-32 pb-20">
+        <div className="container-wide flex flex-col gap-6 max-w-3xl">
+          <FadeIn><SectionLabel>Blog</SectionLabel></FadeIn>
+          <FadeIn delay={0.07}>
+            <h1 className="font-serif text-4xl sm:text-5xl md:text-6xl text-ink leading-[1.1]">
+              Insights from the field
             </h1>
-            <p className="text-lg text-white/70 max-w-2xl">
-              Practical guides and analysis from the Renown360 consulting team — on hiring
-              IT talent, cloud strategy, ERP implementation, and enterprise transformation.
+          </FadeIn>
+          <FadeIn delay={0.14}>
+            <p className="text-ink/60 text-lg leading-relaxed max-w-2xl">
+              Practical perspectives on enterprise IT consulting, staffing, cloud migration,
+              and digital transformation — written by practitioners who do this work every day.
             </p>
-          </div>
+          </FadeIn>
         </div>
       </section>
 
-      <section className="py-20 lg:py-28 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-
-          {/* Featured post */}
-          <Link
-            href={`/blog/${featured.slug}`}
-            className="group block mb-16 bg-neutral-50 rounded-3xl border border-neutral-200 overflow-hidden hover:border-brand-cyan/30 hover:shadow-card-hover transition-all duration-300"
-          >
-            <div className="grid lg:grid-cols-2">
-              {/* Graphic pane */}
-              <div className="bg-hero-gradient min-h-[240px] lg:min-h-full flex items-center justify-center p-10 relative overflow-hidden">
-                <div className="absolute inset-0 opacity-[0.05]"
-                  style={{ backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")` }}
-                />
-                <div className="relative z-10 text-center">
-                  <div className="text-6xl font-black text-white/10 leading-none">01</div>
-                  <div className="text-2xl font-bold text-white mt-2">Featured Article</div>
-                  <div className="w-12 h-1 bg-brand-cyan mx-auto mt-3 rounded-full" />
-                </div>
-              </div>
-
-              {/* Content */}
-              <div className="p-8 lg:p-10 flex flex-col">
-                <div className="flex items-center gap-3 mb-4">
-                  <span
-                    className="text-xs font-bold px-3 py-1 rounded-full"
-                    style={{ color: colors(featured.category).text, backgroundColor: colors(featured.category).bg }}
-                  >
-                    {featured.category}
-                  </span>
-                  <span className="text-xs text-neutral-400 flex items-center gap-1">
-                    <Clock className="w-3 h-3" /> {featured.readTime}
-                  </span>
-                </div>
-                <h2 className="text-2xl font-bold text-brand-navy mb-3 group-hover:text-brand-blue transition-colors duration-200">
-                  {featured.title}
-                </h2>
-                <p className="text-neutral-500 leading-relaxed flex-1 mb-6">{featured.excerpt}</p>
+      <section className="bg-white py-20 pb-28">
+        <div className="container-wide grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+          {posts.map((post, i) => (
+            <FadeIn key={post.slug} delay={i * 0.07}>
+              <Link href={`/blog/${post.slug}`} className="group flex flex-col gap-4 p-7 rounded-3xl border border-line bg-surface hover:border-primary/30 hover:bg-surface-green transition-all duration-200 h-full">
                 <div className="flex items-center justify-between">
-                  <span className="text-xs text-neutral-400">{formatDate(featured.publishedAt)}</span>
-                  <span className="inline-flex items-center gap-1.5 text-brand-cyan font-semibold text-sm group-hover:gap-2.5 transition-all duration-200">
-                    Read article <ArrowRight className="w-4 h-4" />
-                  </span>
-                </div>
-              </div>
-            </div>
-          </Link>
-
-          {/* Rest of posts */}
-          <div className="grid md:grid-cols-2 lg:grid-cols-2 gap-6">
-            {rest.map((post) => (
-              <Link
-                key={post.slug}
-                href={`/blog/${post.slug}`}
-                className="group bg-neutral-50 rounded-2xl border border-neutral-200 p-7 hover:border-brand-cyan/30 hover:shadow-card hover:bg-white transition-all duration-300 flex flex-col"
-              >
-                <div className="flex items-center gap-2 mb-4">
-                  <span
-                    className="text-[11px] font-bold px-2.5 py-0.5 rounded-full"
-                    style={{ color: colors(post.category).text, backgroundColor: colors(post.category).bg }}
-                  >
+                  <span className={`px-3 py-1 text-xs rounded-full font-semibold ${categoryColors[post.category] ?? "bg-primary-light text-primary"}`}>
                     {post.category}
                   </span>
-                  <span className="text-[11px] text-neutral-400 flex items-center gap-1">
-                    <Clock className="w-3 h-3" /> {post.readTime}
+                  <span className="flex items-center gap-1.5 text-xs text-ink/40">
+                    <Clock size={11} /> {post.readTime}
                   </span>
                 </div>
-                <h3 className="text-base font-bold text-brand-navy mb-2 group-hover:text-brand-blue transition-colors duration-200 flex-1">
-                  {post.title}
-                </h3>
-                <p className="text-sm text-neutral-500 leading-relaxed mb-5 line-clamp-2">{post.excerpt}</p>
-                <div className="flex items-center justify-between pt-4 border-t border-neutral-100">
-                  <span className="text-xs text-neutral-400">{formatDate(post.publishedAt)}</span>
-                  <span className="inline-flex items-center gap-1 text-brand-cyan font-semibold text-xs group-hover:gap-2 transition-all duration-200">
-                    Read <ArrowRight className="w-3 h-3" />
+                <div className="flex flex-col gap-2 flex-1">
+                  <h2 className="font-serif text-xl text-ink leading-snug group-hover:text-primary transition-colors">
+                    {post.title}
+                  </h2>
+                  <p className="text-sm text-ink/60 leading-relaxed">{post.excerpt}</p>
+                </div>
+                <div className="flex items-center justify-between pt-2 border-t border-line">
+                  <span className="text-xs text-ink/40">{post.date}</span>
+                  <span className="flex items-center gap-1 text-xs font-semibold text-primary group-hover:gap-2 transition-all">
+                    Read more <ArrowRight size={12} />
                   </span>
                 </div>
               </Link>
-            ))}
-          </div>
+            </FadeIn>
+          ))}
         </div>
       </section>
-
-      <CTASection />
     </>
   );
 }

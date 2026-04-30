@@ -1,116 +1,75 @@
 "use client";
 
-import { motion } from "framer-motion";
-import { Shield, Target, Zap, Globe } from "lucide-react";
-import { VALUES } from "@/lib/constants";
-import { SectionLabel } from "@/components/ui/SectionLabel";
+import { X, Check } from "lucide-react";
 import { FadeIn } from "@/components/ui/FadeIn";
-import { FadeUp } from "@/components/ui/FadeUp";
+import { SectionLabel } from "@/components/ui/SectionLabel";
 
-const ICON_MAP: Record<string, React.ElementType> = { Shield, Target, Zap, Globe };
-
-const differentiators = [
-  {
-    number: "01",
-    title: "Pre-Vetted Talent",
-    desc: "Every consultant undergoes technical screening, background checks, and reference validation before joining our bench. You get productive contributors from week one.",
-  },
-  {
-    number: "02",
-    title: "Enterprise Delivery Model",
-    desc: "Dedicated delivery managers, SLA-backed placements, and weekly governance cadences that meet Fortune 500 procurement standards.",
-  },
-  {
-    number: "03",
-    title: "Multi-Shore Flexibility",
-    desc: "On-shore, near-shore, and offshore delivery options calibrated to your budget and collaboration preferences — without compromising quality.",
-  },
-  {
-    number: "04",
-    title: "Outcome Accountability",
-    desc: "We define measurable KPIs at engagement start and report against them every sprint. No vanity metrics, no hidden costs.",
-  },
+const otherFirms = [
+  { title: "Generic talent pools", desc: "Unvetted candidates with no enterprise-grade screening." },
+  { title: "Weeks to first shortlist", desc: "Slow sourcing cycles that stall critical projects." },
+  { title: "No delivery accountability", desc: "Placed and forgotten. No governance, no follow-through." },
+  { title: "Hidden fees", desc: "Opaque pricing that inflates total engagement cost." },
+  { title: "No performance guarantee", desc: "You absorb all the risk if a placement underperforms." },
 ];
 
-const listContainer = {
-  hidden: {},
-  show: { transition: { staggerChildren: 0.1, delayChildren: 0.05 } },
-};
-
-const listItem = {
-  hidden: { opacity: 0, x: 24 },
-  show:   { opacity: 1, x: 0, transition: { duration: 0.55, ease: [0.22, 1, 0.36, 1] } },
-};
+const withUs = [
+  { title: "100+ pre-vetted consultants", desc: "Enterprise-ready talent screened for skills and culture fit." },
+  { title: "Placed in under 10 days", desc: "Our bench model means candidates are ready to deploy now." },
+  { title: "Dedicated delivery manager", desc: "Ongoing governance included on every engagement." },
+  { title: "Transparent, SLA-backed pricing", desc: "Clear pricing structure from day one." },
+  { title: "30-day performance guarantee", desc: "We replace at no cost if the fit isn't right." },
+];
 
 export function WhyUsSection() {
   return (
-    <section className="py-20 lg:py-28 bg-white overflow-hidden">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid lg:grid-cols-2 gap-14 lg:gap-20 items-center">
-          {/* Left */}
-          <FadeIn direction="left">
-            <SectionLabel className="mb-4">Why Renown360</SectionLabel>
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-brand-navy tracking-tight mb-5">
-              Built for Enterprise.{" "}
-              <span className="text-brand-cyan">Delivered at Scale.</span>
-            </h2>
-            <p className="text-neutral-500 text-lg leading-relaxed mb-8">
-              We combine the rigour of top-tier consulting firms with the agility of a boutique
-              partner — giving enterprises the quality they demand without the overhead they dread.
-            </p>
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-              {VALUES.map((v, i) => {
-                const Icon = ICON_MAP[v.icon];
-                return (
-                  <motion.div
-                    key={v.title}
-                    className="flex items-start gap-3"
-                    initial={{ opacity: 0, y: 16 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.5, delay: 0.15 + i * 0.08, ease: [0.22, 1, 0.36, 1] }}
-                  >
-                    <div className="w-9 h-9 rounded-lg bg-brand-cyan/10 flex items-center justify-center shrink-0 mt-0.5">
-                      {Icon && <Icon className="w-4 h-4 text-brand-cyan" />}
-                    </div>
-                    <div>
-                      <h4 className="text-sm font-bold text-brand-navy mb-0.5">{v.title}</h4>
-                      <p className="text-xs text-neutral-500 leading-relaxed">{v.desc}</p>
-                    </div>
-                  </motion.div>
-                );
-              })}
-            </div>
-          </FadeIn>
+    <section className="bg-surface py-20 md:py-28">
+      <div className="container-wide">
+        <FadeIn className="flex flex-col items-center gap-4 mb-14 text-center">
+          <SectionLabel>Why choose us</SectionLabel>
+          <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl text-ink max-w-2xl text-balance">
+            The consulting partner enterprises call first
+          </h2>
+        </FadeIn>
 
-          {/* Right: numbered list */}
-          <motion.div
-            className="space-y-5"
-            variants={listContainer}
-            initial="hidden"
-            whileInView="show"
-            viewport={{ once: true, margin: "-60px" }}
-          >
-            {differentiators.map((d) => (
-              <motion.div
-                key={d.number}
-                variants={listItem}
-                whileHover={{ x: 4 }}
-                transition={{ type: "spring", stiffness: 300, damping: 20 }}
-                className="flex gap-5 p-5 rounded-2xl border border-neutral-100 bg-neutral-50 hover:border-brand-cyan/20 hover:bg-white cursor-default"
-                style={{ transition: "border-color 0.2s, background-color 0.2s, box-shadow 0.2s" }}
-              >
-                <div className="text-3xl font-black text-brand-cyan/20 leading-none shrink-0 w-10 pt-0.5">
-                  {d.number}
-                </div>
-                <div>
-                  <h4 className="font-bold text-brand-navy mb-1">{d.title}</h4>
-                  <p className="text-sm text-neutral-500 leading-relaxed">{d.desc}</p>
-                </div>
-              </motion.div>
-            ))}
-          </motion.div>
-        </div>
+        <FadeIn delay={0.1}>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 rounded-4xl overflow-hidden border border-line bg-line">
+            {/* Other firms */}
+            <div className="bg-surface-DEFAULT flex flex-col gap-6 p-8 md:p-10">
+              <h3 className="font-serif text-2xl text-ink/50">Other Firms</h3>
+              <ul className="flex flex-col gap-5">
+                {otherFirms.map((item) => (
+                  <li key={item.title} className="flex gap-3.5">
+                    <span className="mt-0.5 w-5 h-5 rounded-full bg-ink/8 flex items-center justify-center shrink-0">
+                      <X size={11} className="text-ink/40" />
+                    </span>
+                    <div>
+                      <p className="text-sm font-semibold text-ink/50">{item.title}</p>
+                      <p className="text-xs text-ink/40 mt-0.5 leading-relaxed">{item.desc}</p>
+                    </div>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            {/* With Renown360 */}
+            <div className="bg-white rounded-3xl flex flex-col gap-6 p-8 md:p-10 shadow-sm">
+              <h3 className="font-serif text-2xl text-ink">With Renown360</h3>
+              <ul className="flex flex-col gap-5">
+                {withUs.map((item) => (
+                  <li key={item.title} className="flex gap-3.5">
+                    <span className="mt-0.5 w-5 h-5 rounded-full bg-primary-light flex items-center justify-center shrink-0">
+                      <Check size={11} className="text-primary" />
+                    </span>
+                    <div>
+                      <p className="text-sm font-semibold text-ink">{item.title}</p>
+                      <p className="text-xs text-ink/50 mt-0.5 leading-relaxed">{item.desc}</p>
+                    </div>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        </FadeIn>
       </div>
     </section>
   );

@@ -1,88 +1,84 @@
 import Link from "next/link";
 import Image from "next/image";
-import { Mail, Phone, MapPin, Linkedin, Twitter, ArrowRight } from "lucide-react";
-import { NAV_LINKS, SERVICES, SITE } from "@/lib/constants";
+import { Mail, Phone, MapPin, Linkedin, Twitter } from "lucide-react";
+import { SERVICES, SITE } from "@/lib/constants";
+
+const company = [
+  { label: "About",    href: "/about" },
+  { label: "Team",     href: "/team" },
+  { label: "Careers",  href: "/careers" },
+  { label: "Blog",     href: "/blog" },
+  { label: "Contact",  href: "/contact" },
+];
+
+const legal = [
+  { label: "Privacy Policy", href: "/privacy" },
+  { label: "Terms of Use",   href: "/terms" },
+];
 
 export function Footer() {
-  const currentYear = new Date().getFullYear();
-
   return (
-    <footer className="bg-brand-navy text-white">
-      {/* Top CTA strip */}
-      <div className="border-b border-white/10">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 flex flex-col md:flex-row items-center justify-between gap-6">
-          <div>
-            <h3 className="text-xl font-bold">Ready to transform your enterprise?</h3>
-            <p className="text-white/60 mt-1 text-sm">
-              Talk to our consulting team — no commitment required.
-            </p>
-          </div>
-          <Link
-            href="/contact"
-            className="inline-flex items-center gap-2 bg-brand-cyan text-white px-6 py-3 rounded-xl font-semibold text-sm hover:bg-brand-cyan-light transition-colors duration-200 shrink-0"
-          >
-            Schedule a Call
-            <ArrowRight className="w-4 h-4" />
-          </Link>
-        </div>
-      </div>
-
-      {/* Main footer grid */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
-          {/* Brand column */}
-          <div className="lg:col-span-1">
-            <Link href="/" className="flex items-center gap-3 mb-5">
-              <div className="relative w-10 h-10 rounded-xl overflow-hidden">
-                <Image src="/logo.jpeg" alt="Renown360" fill className="object-cover" />
-              </div>
-              <div>
-                <span className="text-base font-bold">
-                  Renown<span className="text-brand-cyan">360</span>
-                </span>
-                <p className="text-[10px] text-brand-cyan/70 font-medium tracking-widest uppercase">
-                  IT Consulting
-                </p>
-              </div>
+    <footer className="bg-ink text-white/80">
+      <div className="container-wide pt-16 pb-10">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 pb-12 border-b border-white/10">
+          {/* Brand */}
+          <div className="lg:col-span-2 flex flex-col gap-5">
+            <Link href="/" className="flex items-center gap-2.5 w-fit">
+              <Image
+                src="/logo.jpeg"
+                alt={SITE.name}
+                width={34}
+                height={34}
+                className="rounded-lg object-cover"
+              />
+              <span className="font-serif text-xl text-white">{SITE.name}</span>
             </Link>
-            <p className="text-white/60 text-sm leading-relaxed mb-5">
-              End-to-end IT consulting and talent solutions for Fortune 500 enterprises.
+            <p className="text-sm leading-relaxed max-w-sm text-white/60">
+              Enterprise IT consulting and staffing solutions. Pre-vetted talent,
+              cloud transformation, and ERP expertise. We deliver in under 10 days.
             </p>
+            <div className="flex flex-col gap-2.5 text-sm">
+              <a href={`tel:${SITE.phone}`} className="flex items-center gap-2.5 hover:text-white transition-colors">
+                <Phone size={14} className="text-primary-muted shrink-0" />
+                {SITE.phone}
+              </a>
+              <a href={`mailto:${SITE.email}`} className="flex items-center gap-2.5 hover:text-white transition-colors">
+                <Mail size={14} className="text-primary-muted shrink-0" />
+                {SITE.email}
+              </a>
+              <span className="flex items-start gap-2.5">
+                <MapPin size={14} className="text-primary-muted shrink-0 mt-0.5" />
+                <span>{SITE.address.line1}, {SITE.address.city}, {SITE.address.state} {SITE.address.zip}</span>
+              </span>
+            </div>
             <div className="flex gap-3">
               <a
                 href={SITE.social.linkedin}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="w-9 h-9 rounded-lg bg-white/8 hover:bg-brand-cyan/20 flex items-center justify-center transition-colors duration-200"
+                className="w-8 h-8 rounded-full border border-white/15 flex items-center justify-center hover:bg-white/10 transition-colors"
                 aria-label="LinkedIn"
               >
-                <Linkedin className="w-4 h-4" />
+                <Linkedin size={14} />
               </a>
               <a
                 href={SITE.social.twitter}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="w-9 h-9 rounded-lg bg-white/8 hover:bg-brand-cyan/20 flex items-center justify-center transition-colors duration-200"
+                className="w-8 h-8 rounded-full border border-white/15 flex items-center justify-center hover:bg-white/10 transition-colors"
                 aria-label="Twitter"
               >
-                <Twitter className="w-4 h-4" />
+                <Twitter size={14} />
               </a>
             </div>
           </div>
 
-          {/* Services column */}
+          {/* Services */}
           <div>
-            <h4 className="text-sm font-semibold tracking-wide uppercase text-white/40 mb-4">
-              Services
-            </h4>
-            <ul className="space-y-2.5">
+            <p className="text-xs font-semibold uppercase tracking-widest text-white/40 mb-5">Services</p>
+            <ul className="flex flex-col gap-3">
               {SERVICES.map((s) => (
                 <li key={s.slug}>
                   <Link
-                    href={`/services#${s.slug}`}
-                    className="text-sm text-white/70 hover:text-white transition-colors duration-200 flex items-center gap-1.5 group"
+                    href="/services"
+                    className="text-sm hover:text-white transition-colors"
                   >
-                    <ArrowRight className="w-3 h-3 text-brand-cyan opacity-0 group-hover:opacity-100 transition-opacity duration-200 shrink-0" />
                     {s.title}
                   </Link>
                 </li>
@@ -90,77 +86,38 @@ export function Footer() {
             </ul>
           </div>
 
-          {/* Company column */}
-          <div>
-            <h4 className="text-sm font-semibold tracking-wide uppercase text-white/40 mb-4">
-              Company
-            </h4>
-            <ul className="space-y-2.5">
-              {NAV_LINKS.map((l) => (
-                <li key={l.href}>
-                  <Link
-                    href={l.href}
-                    className="text-sm text-white/70 hover:text-white transition-colors duration-200 flex items-center gap-1.5 group"
-                  >
-                    <ArrowRight className="w-3 h-3 text-brand-cyan opacity-0 group-hover:opacity-100 transition-opacity duration-200 shrink-0" />
-                    {l.label}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          {/* Contact column */}
-          <div>
-            <h4 className="text-sm font-semibold tracking-wide uppercase text-white/40 mb-4">
-              Contact
-            </h4>
-            <ul className="space-y-3">
-              <li>
-                <a
-                  href={`mailto:${SITE.email}`}
-                  className="flex items-start gap-3 text-sm text-white/70 hover:text-white transition-colors duration-200"
-                >
-                  <Mail className="w-4 h-4 text-brand-cyan mt-0.5 shrink-0" />
-                  {SITE.email}
-                </a>
-              </li>
-              <li>
-                <a
-                  href={`tel:${SITE.phone}`}
-                  className="flex items-start gap-3 text-sm text-white/70 hover:text-white transition-colors duration-200"
-                >
-                  <Phone className="w-4 h-4 text-brand-cyan mt-0.5 shrink-0" />
-                  {SITE.phone}
-                </a>
-              </li>
-              <li className="flex items-start gap-3 text-sm text-white/70">
-                <MapPin className="w-4 h-4 text-brand-cyan mt-0.5 shrink-0" />
-                <span>
-                  {SITE.address.line1}
-                  <br />
-                  {SITE.address.city}, {SITE.address.state} {SITE.address.zip}
-                </span>
-              </li>
-            </ul>
+          {/* Company + Legal */}
+          <div className="flex flex-col gap-8">
+            <div>
+              <p className="text-xs font-semibold uppercase tracking-widest text-white/40 mb-5">Company</p>
+              <ul className="flex flex-col gap-3">
+                {company.map((l) => (
+                  <li key={l.href}>
+                    <Link href={l.href} className="text-sm hover:text-white transition-colors">
+                      {l.label}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+            <div>
+              <p className="text-xs font-semibold uppercase tracking-widest text-white/40 mb-5">Legal</p>
+              <ul className="flex flex-col gap-3">
+                {legal.map((l) => (
+                  <li key={l.href}>
+                    <Link href={l.href} className="text-sm hover:text-white transition-colors">
+                      {l.label}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
           </div>
         </div>
-      </div>
 
-      {/* Bottom bar */}
-      <div className="border-t border-white/10">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-5 flex flex-col sm:flex-row items-center justify-between gap-3">
-          <p className="text-white/40 text-xs">
-            © {currentYear} Renown360 LLC. All rights reserved.
-          </p>
-          <div className="flex items-center gap-5">
-            <Link href="/privacy" className="text-white/40 hover:text-white/70 text-xs transition-colors duration-200">
-              Privacy Policy
-            </Link>
-            <Link href="/terms" className="text-white/40 hover:text-white/70 text-xs transition-colors duration-200">
-              Terms of Service
-            </Link>
-          </div>
+        <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-white/40">
+          <p>© {new Date().getFullYear()} {SITE.fullName}. All rights reserved.</p>
+          <p>Sheridan, WY · Durham, NC</p>
         </div>
       </div>
     </footer>

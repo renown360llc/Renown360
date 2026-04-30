@@ -1,284 +1,174 @@
 "use client";
 
 import { useState } from "react";
-import {
-  Mail, Phone, MapPin, Clock, CheckCircle2, ArrowRight,
-  Linkedin, Twitter,
-} from "lucide-react";
-import { SITE } from "@/lib/constants";
+import { Mail, Phone, MapPin, Clock, Send } from "lucide-react";
 import { SectionLabel } from "@/components/ui/SectionLabel";
-import { Button } from "@/components/ui/Button";
-
-const enquiryTypes = [
-  "IT Staffing / Talent Acquisition",
-  "Cloud Migration",
-  "ERP / CRM Implementation",
-  "Data Analytics & AI",
-  "Digital Transformation",
-  "Legacy Modernisation",
-  "Careers / Join Renown360",
-  "General Enquiry",
-];
+import { FadeIn } from "@/components/ui/FadeIn";
+import { SITE } from "@/lib/constants";
 
 export default function ContactPage() {
-  const [submitted, setSubmitted] = useState(false);
+  const [sent, setSent] = useState(false);
+  const [form, setForm] = useState({ name: "", company: "", email: "", phone: "", message: "", service: "" });
 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    setSubmitted(true);
+    setSent(true);
   };
+
+  const info = [
+    { icon: Phone,  label: "Phone",   value: SITE.phone,   href: `tel:${SITE.phone}` },
+    { icon: Mail,   label: "Email",   value: SITE.email,   href: `mailto:${SITE.email}` },
+    { icon: MapPin, label: "Address", value: `${SITE.address.line1}, ${SITE.address.city}, ${SITE.address.state}` },
+    { icon: Clock,  label: "Hours",   value: "Mon–Fri, 9am–6pm EST" },
+  ];
 
   return (
     <>
-      {/* Hero */}
-      <section className="bg-hero-gradient pt-32 pb-20 lg:pt-40 lg:pb-24 relative overflow-hidden">
-        <div className="absolute top-1/3 right-1/4 w-[500px] h-[500px] bg-brand-cyan/8 rounded-full blur-[120px]" />
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-3xl">
-            <SectionLabel className="mb-5">Get in Touch</SectionLabel>
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white tracking-tight leading-[1.1] mb-6">
-              Let&apos;s Start a{" "}
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-cyan to-brand-cyan-light">
-                Conversation
-              </span>
+      <section className="bg-surface pt-32 pb-20">
+        <div className="container-wide flex flex-col gap-6 max-w-3xl">
+          <FadeIn><SectionLabel>Contact us</SectionLabel></FadeIn>
+          <FadeIn delay={0.07}>
+            <h1 className="font-serif text-4xl sm:text-5xl md:text-6xl text-ink leading-[1.1] text-balance">
+              Let&apos;s talk about your next engagement
             </h1>
-            <p className="text-lg text-white/70 leading-relaxed max-w-2xl">
-              Whether you need to hire specialised IT talent, plan a cloud migration, or explore
-              a transformation partnership — our team will get back to you within one business day.
+          </FadeIn>
+          <FadeIn delay={0.14}>
+            <p className="text-ink/60 text-lg leading-relaxed">
+              Whether you need a single consultant or a full transformation team — we&apos;ll scope
+              your requirements and have shortlisted candidates within the week.
             </p>
-          </div>
+          </FadeIn>
         </div>
       </section>
 
-      {/* Contact section */}
-      <section className="py-20 lg:py-28 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid lg:grid-cols-5 gap-12 lg:gap-16">
-            {/* Left: contact info */}
-            <div className="lg:col-span-2 space-y-8">
-              <div>
-                <SectionLabel className="mb-4">Contact Information</SectionLabel>
-                <h2 className="text-2xl font-bold text-brand-navy tracking-tight mb-5">
-                  Reach Our Team
-                </h2>
-              </div>
-
-              {/* Cards */}
-              <div className="space-y-4">
-                <a
-                  href={`mailto:${SITE.email}`}
-                  className="flex items-start gap-4 p-5 rounded-2xl border border-neutral-200 bg-neutral-50 hover:border-brand-cyan/30 hover:bg-white hover:shadow-card transition-all duration-300 group"
-                >
-                  <div className="w-10 h-10 rounded-xl bg-brand-cyan/10 flex items-center justify-center shrink-0 group-hover:bg-brand-cyan/20 transition-colors">
-                    <Mail className="w-5 h-5 text-brand-cyan" />
+      <section className="bg-white py-20">
+        <div className="container-wide grid grid-cols-1 lg:grid-cols-5 gap-10">
+          {/* Contact info */}
+          <FadeIn direction="left" className="lg:col-span-2 flex flex-col gap-6">
+            <div className="flex flex-col gap-4">
+              {info.map((item) => (
+                <div key={item.label} className="flex gap-4 p-5 rounded-2xl border border-line bg-surface">
+                  <div className="w-9 h-9 rounded-xl bg-primary-light flex items-center justify-center shrink-0">
+                    <item.icon size={15} className="text-primary" />
                   </div>
                   <div>
-                    <p className="text-xs font-semibold tracking-widest uppercase text-neutral-400 mb-0.5">Email</p>
-                    <p className="font-semibold text-brand-navy">{SITE.email}</p>
-                    <p className="text-xs text-neutral-500 mt-0.5">We respond within 1 business day</p>
-                  </div>
-                </a>
-
-                <a
-                  href={`tel:${SITE.phone}`}
-                  className="flex items-start gap-4 p-5 rounded-2xl border border-neutral-200 bg-neutral-50 hover:border-brand-cyan/30 hover:bg-white hover:shadow-card transition-all duration-300 group"
-                >
-                  <div className="w-10 h-10 rounded-xl bg-brand-cyan/10 flex items-center justify-center shrink-0 group-hover:bg-brand-cyan/20 transition-colors">
-                    <Phone className="w-5 h-5 text-brand-cyan" />
-                  </div>
-                  <div>
-                    <p className="text-xs font-semibold tracking-widest uppercase text-neutral-400 mb-0.5">Phone</p>
-                    <p className="font-semibold text-brand-navy">{SITE.phone}</p>
-                    <p className="text-xs text-neutral-500 mt-0.5">Mon–Fri, 9am–6pm ET</p>
-                  </div>
-                </a>
-
-                <div className="flex items-start gap-4 p-5 rounded-2xl border border-neutral-200 bg-neutral-50">
-                  <div className="w-10 h-10 rounded-xl bg-brand-cyan/10 flex items-center justify-center shrink-0">
-                    <MapPin className="w-5 h-5 text-brand-cyan" />
-                  </div>
-                  <div>
-                    <p className="text-xs font-semibold tracking-widest uppercase text-neutral-400 mb-0.5">
-                      Office
-                    </p>
-                    <p className="font-semibold text-brand-navy">{SITE.address.line1}</p>
-                    <p className="text-sm text-neutral-500">
-                      {SITE.address.city}, {SITE.address.state} {SITE.address.zip}
-                    </p>
+                    <p className="text-xs font-semibold uppercase tracking-widest text-ink/40 mb-0.5">{item.label}</p>
+                    {item.href ? (
+                      <a href={item.href} className="text-sm text-ink hover:text-primary transition-colors">{item.value}</a>
+                    ) : (
+                      <p className="text-sm text-ink">{item.value}</p>
+                    )}
                   </div>
                 </div>
+              ))}
+            </div>
 
-                <div className="flex items-start gap-4 p-5 rounded-2xl border border-neutral-200 bg-neutral-50">
-                  <div className="w-10 h-10 rounded-xl bg-brand-cyan/10 flex items-center justify-center shrink-0">
-                    <Clock className="w-5 h-5 text-brand-cyan" />
-                  </div>
-                  <div>
-                    <p className="text-xs font-semibold tracking-widest uppercase text-neutral-400 mb-0.5">
-                      Business Hours
-                    </p>
-                    <p className="font-semibold text-brand-navy">Monday – Friday</p>
-                    <p className="text-sm text-neutral-500">9:00 AM – 6:00 PM Eastern Time</p>
-                  </div>
+            <div className="p-6 rounded-2xl bg-primary-light border border-line">
+              <p className="font-serif text-lg text-ink mb-2">Typical response time</p>
+              <p className="text-sm text-ink/60 leading-relaxed">
+                We respond to all enquiries within 4 business hours. For urgent staffing needs,
+                call us directly and we&apos;ll begin sourcing immediately.
+              </p>
+            </div>
+          </FadeIn>
+
+          {/* Form */}
+          <FadeIn direction="right" className="lg:col-span-3">
+            {sent ? (
+              <div className="h-full flex flex-col items-center justify-center text-center gap-4 py-16 px-8 rounded-3xl border border-line bg-surface">
+                <div className="w-14 h-14 rounded-full bg-primary-light flex items-center justify-center">
+                  <Send size={22} className="text-primary" />
                 </div>
-              </div>
-
-              {/* Social */}
-              <div>
-                <p className="text-xs font-semibold tracking-widest uppercase text-neutral-400 mb-3">
-                  Follow Us
+                <h2 className="font-serif text-2xl text-ink">Message received</h2>
+                <p className="text-sm text-ink/60 max-w-sm">
+                  Thank you for reaching out. A member of our delivery team will be in touch within 4 business hours.
                 </p>
-                <div className="flex gap-3">
-                  <a
-                    href={SITE.social.linkedin}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="w-10 h-10 rounded-xl bg-neutral-100 hover:bg-brand-cyan/10 hover:border-brand-cyan/20 border border-neutral-200 flex items-center justify-center text-neutral-500 hover:text-brand-cyan transition-all duration-200"
-                    aria-label="LinkedIn"
-                  >
-                    <Linkedin className="w-4 h-4" />
-                  </a>
-                  <a
-                    href={SITE.social.twitter}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="w-10 h-10 rounded-xl bg-neutral-100 hover:bg-brand-cyan/10 hover:border-brand-cyan/20 border border-neutral-200 flex items-center justify-center text-neutral-500 hover:text-brand-cyan transition-all duration-200"
-                    aria-label="Twitter"
-                  >
-                    <Twitter className="w-4 h-4" />
-                  </a>
-                </div>
               </div>
-            </div>
-
-            {/* Right: contact form */}
-            <div className="lg:col-span-3">
-              {submitted ? (
-                <div className="bg-white rounded-2xl p-12 border border-brand-cyan/20 shadow-card text-center h-full flex flex-col items-center justify-center">
-                  <div className="w-16 h-16 rounded-full bg-brand-cyan/10 flex items-center justify-center mx-auto mb-5">
-                    <CheckCircle2 className="w-8 h-8 text-brand-cyan" />
-                  </div>
-                  <h3 className="text-2xl font-bold text-brand-navy mb-3">Message Sent</h3>
-                  <p className="text-neutral-500 max-w-sm leading-relaxed">
-                    Thank you for reaching out. A member of our consulting team will contact you
-                    within one business day.
-                  </p>
-                </div>
-              ) : (
-                <form
-                  onSubmit={handleSubmit}
-                  className="bg-white rounded-2xl p-8 border border-neutral-200 shadow-card space-y-5"
-                >
-                  <div>
-                    <h3 className="text-xl font-bold text-brand-navy mb-1">Send Us a Message</h3>
-                    <p className="text-sm text-neutral-500">All fields marked * are required.</p>
-                  </div>
-
-                  <div className="grid sm:grid-cols-2 gap-5">
-                    <div>
-                      <label className="block text-sm font-semibold text-brand-navy mb-1.5">
-                        First Name <span className="text-red-500">*</span>
-                      </label>
-                      <input
-                        type="text"
-                        required
-                        placeholder="John"
-                        className="w-full px-4 py-2.5 rounded-xl border border-neutral-200 text-sm text-neutral-800 placeholder:text-neutral-400 focus:outline-none focus:ring-2 focus:ring-brand-cyan/30 focus:border-brand-cyan transition-colors"
-                      />
-                    </div>
-                    <div>
-                      <label className="block text-sm font-semibold text-brand-navy mb-1.5">
-                        Last Name <span className="text-red-500">*</span>
-                      </label>
-                      <input
-                        type="text"
-                        required
-                        placeholder="Doe"
-                        className="w-full px-4 py-2.5 rounded-xl border border-neutral-200 text-sm text-neutral-800 placeholder:text-neutral-400 focus:outline-none focus:ring-2 focus:ring-brand-cyan/30 focus:border-brand-cyan transition-colors"
-                      />
-                    </div>
-                  </div>
-
-                  <div className="grid sm:grid-cols-2 gap-5">
-                    <div>
-                      <label className="block text-sm font-semibold text-brand-navy mb-1.5">
-                        Work Email <span className="text-red-500">*</span>
-                      </label>
-                      <input
-                        type="email"
-                        required
-                        placeholder="john@company.com"
-                        className="w-full px-4 py-2.5 rounded-xl border border-neutral-200 text-sm text-neutral-800 placeholder:text-neutral-400 focus:outline-none focus:ring-2 focus:ring-brand-cyan/30 focus:border-brand-cyan transition-colors"
-                      />
-                    </div>
-                    <div>
-                      <label className="block text-sm font-semibold text-brand-navy mb-1.5">
-                        Phone Number
-                      </label>
-                      <input
-                        type="tel"
-                        placeholder="+1 (555) 000-0000"
-                        className="w-full px-4 py-2.5 rounded-xl border border-neutral-200 text-sm text-neutral-800 placeholder:text-neutral-400 focus:outline-none focus:ring-2 focus:ring-brand-cyan/30 focus:border-brand-cyan transition-colors"
-                      />
-                    </div>
-                  </div>
-
-                  <div>
-                    <label className="block text-sm font-semibold text-brand-navy mb-1.5">
-                      Company Name <span className="text-red-500">*</span>
-                    </label>
+            ) : (
+              <form onSubmit={handleSubmit} className="flex flex-col gap-4 p-8 rounded-3xl border border-line bg-surface">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  <div className="flex flex-col gap-1.5">
+                    <label className="text-xs font-semibold text-ink/60">Full name *</label>
                     <input
-                      type="text"
                       required
-                      placeholder="Acme Corporation"
-                      className="w-full px-4 py-2.5 rounded-xl border border-neutral-200 text-sm text-neutral-800 placeholder:text-neutral-400 focus:outline-none focus:ring-2 focus:ring-brand-cyan/30 focus:border-brand-cyan transition-colors"
+                      value={form.name}
+                      onChange={(e) => setForm({ ...form, name: e.target.value })}
+                      placeholder="Jane Smith"
+                      className="px-4 py-3 rounded-xl border border-line bg-white text-sm text-ink placeholder:text-ink/30 focus:outline-none focus:border-primary/50 transition-colors"
                     />
                   </div>
-
-                  <div>
-                    <label className="block text-sm font-semibold text-brand-navy mb-1.5">
-                      Enquiry Type <span className="text-red-500">*</span>
-                    </label>
-                    <select
+                  <div className="flex flex-col gap-1.5">
+                    <label className="text-xs font-semibold text-ink/60">Company *</label>
+                    <input
                       required
-                      className="w-full px-4 py-2.5 rounded-xl border border-neutral-200 text-sm text-neutral-800 focus:outline-none focus:ring-2 focus:ring-brand-cyan/30 focus:border-brand-cyan transition-colors bg-white"
-                    >
-                      <option value="">Select enquiry type</option>
-                      {enquiryTypes.map((t) => (
-                        <option key={t} value={t}>
-                          {t}
-                        </option>
-                      ))}
-                    </select>
-                  </div>
-
-                  <div>
-                    <label className="block text-sm font-semibold text-brand-navy mb-1.5">
-                      Message <span className="text-red-500">*</span>
-                    </label>
-                    <textarea
-                      required
-                      rows={5}
-                      placeholder="Describe your initiative, challenge, or requirements. The more detail you provide, the more tailored our response will be."
-                      className="w-full px-4 py-2.5 rounded-xl border border-neutral-200 text-sm text-neutral-800 placeholder:text-neutral-400 focus:outline-none focus:ring-2 focus:ring-brand-cyan/30 focus:border-brand-cyan transition-colors resize-none"
+                      value={form.company}
+                      onChange={(e) => setForm({ ...form, company: e.target.value })}
+                      placeholder="Acme Corp"
+                      className="px-4 py-3 rounded-xl border border-line bg-white text-sm text-ink placeholder:text-ink/30 focus:outline-none focus:border-primary/50 transition-colors"
                     />
                   </div>
-
-                  <Button type="submit" variant="primary" size="lg" className="w-full justify-center">
-                    Send Message
-                    <ArrowRight className="w-4 h-4" />
-                  </Button>
-
-                  <p className="text-xs text-neutral-400 text-center">
-                    By submitting this form you agree to our{" "}
-                    <a href="/privacy" className="underline hover:text-neutral-600">
-                      Privacy Policy
-                    </a>
-                    . We never share your data with third parties.
-                  </p>
-                </form>
-              )}
-            </div>
-          </div>
+                </div>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  <div className="flex flex-col gap-1.5">
+                    <label className="text-xs font-semibold text-ink/60">Work email *</label>
+                    <input
+                      required
+                      type="email"
+                      value={form.email}
+                      onChange={(e) => setForm({ ...form, email: e.target.value })}
+                      placeholder="jane@company.com"
+                      className="px-4 py-3 rounded-xl border border-line bg-white text-sm text-ink placeholder:text-ink/30 focus:outline-none focus:border-primary/50 transition-colors"
+                    />
+                  </div>
+                  <div className="flex flex-col gap-1.5">
+                    <label className="text-xs font-semibold text-ink/60">Phone</label>
+                    <input
+                      value={form.phone}
+                      onChange={(e) => setForm({ ...form, phone: e.target.value })}
+                      placeholder="+1 (555) 000-0000"
+                      className="px-4 py-3 rounded-xl border border-line bg-white text-sm text-ink placeholder:text-ink/30 focus:outline-none focus:border-primary/50 transition-colors"
+                    />
+                  </div>
+                </div>
+                <div className="flex flex-col gap-1.5">
+                  <label className="text-xs font-semibold text-ink/60">Service of interest</label>
+                  <select
+                    value={form.service}
+                    onChange={(e) => setForm({ ...form, service: e.target.value })}
+                    className="px-4 py-3 rounded-xl border border-line bg-white text-sm text-ink focus:outline-none focus:border-primary/50 transition-colors"
+                  >
+                    <option value="">Select a service...</option>
+                    <option>IT Staffing & Consulting</option>
+                    <option>Legacy System Modernization</option>
+                    <option>Cloud Migration & DevOps</option>
+                    <option>ERP & CRM Implementation</option>
+                    <option>Data Analytics & AI/ML</option>
+                    <option>Digital Transformation</option>
+                  </select>
+                </div>
+                <div className="flex flex-col gap-1.5">
+                  <label className="text-xs font-semibold text-ink/60">Tell us about your project *</label>
+                  <textarea
+                    required
+                    rows={5}
+                    value={form.message}
+                    onChange={(e) => setForm({ ...form, message: e.target.value })}
+                    placeholder="Describe your requirements, timeline, and team size..."
+                    className="px-4 py-3 rounded-xl border border-line bg-white text-sm text-ink placeholder:text-ink/30 focus:outline-none focus:border-primary/50 transition-colors resize-none"
+                  />
+                </div>
+                <button
+                  type="submit"
+                  className="w-full py-3.5 rounded-full bg-primary text-white font-semibold text-sm hover:bg-primary-dark transition-colors flex items-center justify-center gap-2"
+                >
+                  Send message <Send size={14} />
+                </button>
+                <p className="text-xs text-ink/40 text-center">
+                  We respond within 4 business hours. No spam, ever.
+                </p>
+              </form>
+            )}
+          </FadeIn>
         </div>
       </section>
     </>
