@@ -5,7 +5,6 @@ import { WhyUsSection } from "@/components/home/WhyUsSection";
 import { ServicesSection } from "@/components/home/ServicesSection";
 import { HowWeEngage } from "@/components/home/HowWeEngage";
 import { StatsSection } from "@/components/home/StatsSection";
-import { BentoSection } from "@/components/home/BentoSection";
 import { Results } from "@/components/home/Results";
 import { IndustriesStrip } from "@/components/home/IndustriesStrip";
 import { CTASection } from "@/components/home/CTASection";
@@ -25,7 +24,6 @@ export default function HomePage() {
       <ServicesSection />
       <HowWeEngage />
       <StatsSection />
-      <BentoSection />
       <Results />
       <IndustriesStrip />
       <CTASection />
