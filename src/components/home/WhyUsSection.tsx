@@ -52,17 +52,17 @@ export function WhyUsSection() {
             </div>
 
             {/* With Renown360 */}
-            <div className="bg-white rounded-3xl flex flex-col gap-5 p-6 sm:p-8 md:p-10">
-              <h3 className="font-serif text-xl sm:text-2xl text-ink">With Renown360</h3>
+            <div className="bg-primary rounded-3xl flex flex-col gap-5 p-6 sm:p-8 md:p-10">
+              <h3 className="font-serif text-xl sm:text-2xl text-white">With Renown360</h3>
               <ul className="flex flex-col gap-4">
                 {withUs.map((item) => (
                   <li key={item.title} className="flex gap-3">
-                    <span className="mt-0.5 w-5 h-5 rounded-full bg-primary-light flex items-center justify-center shrink-0">
-                      <Check size={11} className="text-primary" />
+                    <span className="mt-0.5 w-5 h-5 rounded-full bg-white/20 flex items-center justify-center shrink-0">
+                      <Check size={11} className="text-white" />
                     </span>
                     <div>
-                      <p className="text-sm font-semibold text-ink">{item.title}</p>
-                      <p className="text-xs text-ink/50 mt-0.5 leading-relaxed">{item.desc}</p>
+                      <p className="text-sm font-semibold text-white">{item.title}</p>
+                      <p className="text-xs text-white/60 mt-0.5 leading-relaxed">{item.desc}</p>
                     </div>
                   </li>
                 ))}
