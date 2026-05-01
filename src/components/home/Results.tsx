@@ -52,7 +52,7 @@ export function Results() {
               <div className="flex flex-col rounded-3xl border border-line overflow-hidden bg-surface h-full">
                 {/* Image */}
                 <div className="relative h-44 overflow-hidden">
-                  <Image src={r.image} alt={r.industry} fill className="object-cover" />
+                  <Image src={r.image} alt={r.industry} fill sizes="(max-width: 768px) 100vw, 33vw" className="object-cover" />
                   <div className="absolute inset-0 bg-primary/55" />
                   <div className="absolute bottom-4 left-5">
                     <p className="text-xs font-semibold uppercase tracking-widest text-white/60">{r.industry}</p>

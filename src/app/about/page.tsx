@@ -49,7 +49,7 @@ export default function AboutPage() {
               src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=900&q=80"
               alt="Renown360 team"
               fill
-              className="object-cover"
+              sizes="(max-width: 1024px) 100vw, 50vw" className="object-cover"
             />
           </FadeIn>
           <FadeIn direction="right" className="flex flex-col gap-6">

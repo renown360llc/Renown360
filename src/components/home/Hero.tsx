@@ -63,7 +63,7 @@ export function Hero() {
                 src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?auto=format&fit=crop&w=900&q=80"
                 alt="Enterprise consulting team"
                 fill
-                className="object-cover object-center"
+                sizes="(max-width: 1024px) 100vw, 44vw" className="object-cover object-center"
                 priority
               />
             </div>

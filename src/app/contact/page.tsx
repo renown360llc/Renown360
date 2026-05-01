@@ -88,9 +88,9 @@ export default function ContactPage() {
               <form onSubmit={handleSubmit} className="flex flex-col gap-4 p-8 rounded-3xl border border-line bg-surface">
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div className="flex flex-col gap-1.5">
-                    <label className="text-xs font-semibold text-ink/60">Full name *</label>
+                    <label htmlFor="name" className="text-xs font-semibold text-ink/60">Full name *</label>
                     <input
-                      required
+                      id="name" required
                       value={form.name}
                       onChange={(e) => setForm({ ...form, name: e.target.value })}
                       placeholder="Jane Smith"
@@ -98,9 +98,9 @@ export default function ContactPage() {
                     />
                   </div>
                   <div className="flex flex-col gap-1.5">
-                    <label className="text-xs font-semibold text-ink/60">Company *</label>
+                    <label htmlFor="company" className="text-xs font-semibold text-ink/60">Company *</label>
                     <input
-                      required
+                      id="company" required
                       value={form.company}
                       onChange={(e) => setForm({ ...form, company: e.target.value })}
                       placeholder="Acme Corp"
@@ -110,10 +110,9 @@ export default function ContactPage() {
                 </div>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div className="flex flex-col gap-1.5">
-                    <label className="text-xs font-semibold text-ink/60">Work email *</label>
+                    <label htmlFor="email" className="text-xs font-semibold text-ink/60">Work email *</label>
                     <input
-                      required
-                      type="email"
+                      id="email" required type="email"
                       value={form.email}
                       onChange={(e) => setForm({ ...form, email: e.target.value })}
                       placeholder="jane@company.com"
@@ -121,8 +120,9 @@ export default function ContactPage() {
                     />
                   </div>
                   <div className="flex flex-col gap-1.5">
-                    <label className="text-xs font-semibold text-ink/60">Phone</label>
+                    <label htmlFor="phone" className="text-xs font-semibold text-ink/60">Phone</label>
                     <input
+                      id="phone"
                       value={form.phone}
                       onChange={(e) => setForm({ ...form, phone: e.target.value })}
                       placeholder="+1 (555) 000-0000"
@@ -131,8 +131,9 @@ export default function ContactPage() {
                   </div>
                 </div>
                 <div className="flex flex-col gap-1.5">
-                  <label className="text-xs font-semibold text-ink/60">Service of interest</label>
+                  <label htmlFor="service" className="text-xs font-semibold text-ink/60">Service of interest</label>
                   <select
+                    id="service"
                     value={form.service}
                     onChange={(e) => setForm({ ...form, service: e.target.value })}
                     className="px-4 py-3 rounded-xl border border-line bg-white text-sm text-ink focus:outline-none focus:border-primary/50 transition-colors"
@@ -147,10 +148,9 @@ export default function ContactPage() {
                   </select>
                 </div>
                 <div className="flex flex-col gap-1.5">
-                  <label className="text-xs font-semibold text-ink/60">Tell us about your project *</label>
+                  <label htmlFor="message" className="text-xs font-semibold text-ink/60">Tell us about your project *</label>
                   <textarea
-                    required
-                    rows={5}
+                    id="message" required rows={5}
                     value={form.message}
                     onChange={(e) => setForm({ ...form, message: e.target.value })}
                     placeholder="Describe your requirements, timeline, and team size..."

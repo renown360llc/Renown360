@@ -40,7 +40,7 @@ export default function TeamPage() {
         <div className="container-wide">
           <FadeIn>
             <div className="relative h-96 md:h-[500px] rounded-4xl overflow-hidden">
-              <Image src={teamPhoto} alt="Renown360 consulting team" fill className="object-cover" />
+              <Image src={teamPhoto} alt="Renown360 consulting team" fill sizes="100vw" className="object-cover" />
               <div className="absolute inset-0 bg-gradient-to-t from-primary/70 via-transparent to-transparent" />
               <div className="absolute bottom-8 left-8 right-8">
                 <p className="font-serif text-3xl text-white max-w-lg leading-snug text-balance">

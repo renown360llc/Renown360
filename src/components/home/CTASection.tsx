@@ -40,7 +40,7 @@ export function CTASection() {
                 src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=700&q=80"
                 alt="Schedule a consultation"
                 fill
-                className="object-cover"
+                sizes="400px" className="object-cover"
               />
             </div>
           </div>

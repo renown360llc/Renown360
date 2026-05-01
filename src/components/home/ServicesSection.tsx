@@ -4,7 +4,7 @@ import { useState, useRef, useEffect, useCallback } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowLeft, ArrowRight, Users, RefreshCw, Cloud, LayoutGrid, BarChart2, Zap } from "lucide-react";
-import { motion, useMotionValue, useTransform } from "framer-motion";
+import { motion } from "framer-motion";
 import { FadeIn } from "@/components/ui/FadeIn";
 import { SectionLabel } from "@/components/ui/SectionLabel";
 import { SERVICES } from "@/lib/constants";
@@ -96,7 +96,7 @@ export function ServicesSection() {
                 src={serviceImages[ri]}
                 alt={SERVICES[ri].title}
                 fill
-                className="object-cover"
+                sizes="(max-width: 640px) calc(100vw - 40px), (max-width: 1024px) 500px, 560px" className="object-cover"
                 priority={ri === 0}
               />
               <div className="absolute inset-0 bg-gradient-to-t from-ink/90 via-ink/30 to-transparent" />

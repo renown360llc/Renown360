@@ -68,7 +68,7 @@ export function HowWeEngage() {
                   <div className={`md:pr-16 flex items-center ${isEven ? "" : "md:order-1"}`}>
                     {isEven ? (
                       <div className="relative w-full h-64 md:h-80 rounded-3xl overflow-hidden">
-                        <Image src={step.image} alt={step.title} fill className={`object-cover ${step.objectPosition}`} />
+                        <Image src={step.image} alt={step.title} fill sizes="(max-width: 768px) 100vw, 50vw" className={`object-cover ${step.objectPosition}`} />
                       </div>
                     ) : (
                       <div className="flex flex-col gap-4 md:max-w-sm md:ml-auto">
@@ -89,7 +89,7 @@ export function HowWeEngage() {
                       </div>
                     ) : (
                       <div className="relative w-full h-64 md:h-80 rounded-3xl overflow-hidden">
-                        <Image src={step.image} alt={step.title} fill className={`object-cover ${step.objectPosition}`} />
+                        <Image src={step.image} alt={step.title} fill sizes="(max-width: 768px) 100vw, 50vw" className={`object-cover ${step.objectPosition}`} />
                       </div>
                     )}
                   </div>

@@ -69,7 +69,7 @@ export default function CareersPage() {
             {depts.map((d) => (
               <button
                 key={d}
-                onClick={() => setDept(d)}
+                onClick={() => setDept(d)} aria-label={`Filter by ${d}`}
                 className={`px-4 py-2 rounded-full text-sm font-medium transition-colors ${
                   dept === d
                     ? "bg-primary text-white"
