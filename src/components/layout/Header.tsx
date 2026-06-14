@@ -28,13 +28,14 @@ export function Header() {
     >
       <div className="container-wide flex items-center justify-between h-16">
         {/* Logo */}
-        <Link href="/" className="flex items-center gap-1.5 shrink-0">
+        <Link href="/" className="flex items-center gap-2 shrink-0">
           <Image
-            src="/logo.png"
+            src="/logo-icon.png"
             alt={SITE.name}
             width={40}
             height={40}
-            className="object-contain"
+            priority
+            className="h-9 w-9 object-contain"
           />
           <span className="font-serif text-xl text-ink">{SITE.name}</span>
         </Link>

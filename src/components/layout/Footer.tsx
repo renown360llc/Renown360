@@ -23,13 +23,13 @@ export function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 pb-12 border-b border-white/10">
           {/* Brand */}
           <div className="lg:col-span-2 flex flex-col gap-5">
-            <Link href="/" className="flex items-center gap-1.5 w-fit">
+            <Link href="/" className="flex items-center gap-2 w-fit">
               <Image
-                src="/logo.png"
+                src="/logo-icon.png"
                 alt={SITE.name}
                 width={40}
                 height={40}
-                className="object-contain"
+                className="h-9 w-9 object-contain"
               />
               <span className="font-serif text-xl text-white">{SITE.name}</span>
             </Link>
