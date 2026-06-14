@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import { Inter } from "next/font/google";
+import { Inter, Hedvig_Letters_Serif } from "next/font/google";
 import "./globals.css";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
@@ -8,6 +8,13 @@ import { SITE } from "@/lib/constants";
 const inter = Inter({
   subsets: ["latin"],
   variable: "--font-inter",
+  display: "swap",
+});
+
+const hedvig = Hedvig_Letters_Serif({
+  subsets: ["latin"],
+  weight: "400",
+  variable: "--font-hedvig",
   display: "swap",
 });
 
@@ -72,12 +79,8 @@ function JsonLd() {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className={inter.variable}>
+    <html lang="en" className={`${inter.variable} ${hedvig.variable}`}>
       <head>
-        <link
-          href="https://fonts.googleapis.com/css2?family=Hedvig+Letters+Serif:opsz@12..24&display=swap"
-          rel="stylesheet"
-        />
         <JsonLd />
         <script dangerouslySetInnerHTML={{ __html: `if (history.scrollRestoration) history.scrollRestoration = 'manual';` }} />
       </head>

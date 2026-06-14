@@ -2,10 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --font-hedvig: "Hedvig Letters Serif";
-}
-
 @layer base {
   html {
     scroll-behavior: smooth;
