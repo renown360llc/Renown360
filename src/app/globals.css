@@ -20,9 +20,9 @@
   }
 
   h1, h2, h3, h4, h5, h6 {
-    font-family: var(--font-hedvig), "Hedvig Letters Serif", Georgia, serif;
-    font-weight: 400;
-    letter-spacing: -0.03em;
+    font-family: var(--font-display), "Space Grotesk", system-ui, sans-serif;
+    font-weight: 600;
+    letter-spacing: -0.02em;
   }
 
   :focus-visible {

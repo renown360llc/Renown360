@@ -30,7 +30,8 @@ const config: Config = {
       },
       fontFamily: {
         sans:  ["var(--font-inter)", "Inter", "system-ui", "sans-serif"],
-        serif: ["var(--font-hedvig)", '"Hedvig Letters Serif"', "Georgia", "serif"],
+        serif: ["var(--font-display)", '"Space Grotesk"', "system-ui", "sans-serif"],
+        display: ["var(--font-display)", '"Space Grotesk"', "system-ui", "sans-serif"],
       },
       borderRadius: {
         "4xl": "2rem",
