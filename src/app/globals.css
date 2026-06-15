@@ -53,6 +53,17 @@
   animation-play-state: paused;
 }
 
+/* ── Ken Burns (slow hero drift) ──────────────────── */
+@keyframes kenburns {
+  0%   { transform: scale(1)    translate3d(0, 0, 0); }
+  100% { transform: scale(1.08) translate3d(-1.5%, -1%, 0); }
+}
+
+.animate-kenburns {
+  animation: kenburns 18s ease-in-out infinite alternate;
+  will-change: transform;
+}
+
 /* ── Reduced motion ───────────────────────────────── */
 @media (prefers-reduced-motion: reduce) {
   html {

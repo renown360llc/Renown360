@@ -6,6 +6,8 @@ import { ServicesSection } from "@/components/home/ServicesSection";
 import { HowWeEngage } from "@/components/home/HowWeEngage";
 import { StatsSection } from "@/components/home/StatsSection";
 import { Results } from "@/components/home/Results";
+import { CaseStudies } from "@/components/home/CaseStudies";
+import { Testimonials } from "@/components/home/Testimonials";
 import { IndustriesStrip } from "@/components/home/IndustriesStrip";
 import { CTASection } from "@/components/home/CTASection";
 
@@ -25,6 +27,8 @@ export default function HomePage() {
       <HowWeEngage />
       <StatsSection />
       <Results />
+      <CaseStudies />
+      <Testimonials />
       <IndustriesStrip />
       <CTASection />
     </>

@@ -5,11 +5,12 @@ import { useInView } from "react-intersection-observer";
 
 interface AnimatedCounterProps {
   end: number;
+  prefix?: string;
   suffix?: string;
   duration?: number;
 }
 
-export function AnimatedCounter({ end, suffix = "", duration = 1800 }: AnimatedCounterProps) {
+export function AnimatedCounter({ end, prefix = "", suffix = "", duration = 1800 }: AnimatedCounterProps) {
   const [count, setCount] = useState(0);
   const [ref, inView] = useInView({ triggerOnce: true, threshold: 0.4 });
   const started = useRef(false);
@@ -31,6 +32,7 @@ export function AnimatedCounter({ end, suffix = "", duration = 1800 }: AnimatedC
 
   return (
     <span ref={ref}>
+      {prefix}
       {count}
       {suffix}
     </span>

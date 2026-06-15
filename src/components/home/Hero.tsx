@@ -4,12 +4,13 @@ import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
 import { ArrowRight, Star } from "lucide-react";
+import { AnimatedCounter } from "@/components/ui/AnimatedCounter";
 
 const stats = [
-  { value: "100+", label: "Active Consultants" },
-  { value: "<10d", label: "Avg. Time-to-Place" },
-  { value: "98%",  label: "Client Satisfaction" },
-  { value: "50+",  label: "Enterprise Clients" },
+  { end: 100, suffix: "+",          label: "Active Consultants" },
+  { end: 10,  prefix: "<", suffix: "d", label: "Avg. Time-to-Place" },
+  { end: 98,  suffix: "%",          label: "Client Satisfaction" },
+  { end: 50,  suffix: "+",          label: "Enterprise Clients" },
 ];
 
 const heroImg =
@@ -20,7 +21,7 @@ export function Hero() {
     <section className="relative bg-primary text-white overflow-hidden">
       {/* Photo bleeds to the right edge on desktop */}
       <div className="hidden lg:block absolute top-0 right-0 bottom-0 w-[46%]">
-        <Image src={heroImg} alt="Enterprise consulting team" fill sizes="46vw" className="object-cover object-center" priority />
+        <Image src={heroImg} alt="Enterprise consulting team" fill sizes="46vw" className="object-cover object-center animate-kenburns" priority />
         {/* feather only the photo's left edge into the green */}
         <div className="absolute inset-0 bg-gradient-to-r from-primary via-transparent to-transparent" />
       </div>
@@ -29,7 +30,7 @@ export function Hero() {
       <div className="relative container-wide pt-32 lg:pt-28 pb-12 lg:pb-16 min-h-[78vh] flex flex-col justify-center">
         {/* Mobile image */}
         <div className="lg:hidden relative w-full h-52 sm:h-64 rounded-2xl overflow-hidden mb-8">
-          <Image src={heroImg} alt="Enterprise consulting team" fill sizes="100vw" className="object-cover object-center" priority />
+          <Image src={heroImg} alt="Enterprise consulting team" fill sizes="100vw" className="object-cover object-center animate-kenburns" priority />
         </div>
 
         <motion.div
@@ -83,7 +84,9 @@ export function Hero() {
               key={s.label}
               className={`flex flex-col items-center justify-center py-6 sm:py-7 px-3 gap-1 border-white/15 ${i < 3 ? "md:border-r" : ""} ${i % 2 === 0 ? "border-r md:border-r" : ""} ${i < 2 ? "border-b md:border-b-0" : ""}`}
             >
-              <span className="font-serif text-2xl sm:text-3xl text-white">{s.value}</span>
+              <span className="font-serif text-2xl sm:text-3xl text-white">
+                <AnimatedCounter end={s.end} prefix={s.prefix} suffix={s.suffix} />
+              </span>
               <span className="text-[10px] sm:text-xs text-white/60 font-medium text-center leading-tight">{s.label}</span>
             </div>
           ))}
