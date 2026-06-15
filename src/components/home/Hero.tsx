@@ -20,7 +20,7 @@ export function Hero() {
   return (
     <section className="relative bg-primary text-white overflow-hidden">
       {/* Photo bleeds to the right edge on desktop */}
-      <div className="hidden lg:block absolute top-0 right-0 bottom-0 w-[46%]">
+      <div className="hidden lg:block absolute top-0 right-0 bottom-0 w-[46%] overflow-hidden">
         <Image src={heroImg} alt="Enterprise consulting team" fill sizes="46vw" className="object-cover object-center animate-kenburns" priority />
         {/* feather only the photo's left edge into the green */}
         <div className="absolute inset-0 bg-gradient-to-r from-primary via-transparent to-transparent" />
