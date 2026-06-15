@@ -46,9 +46,9 @@ export function Results() {
           </h2>
         </FadeIn>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+        <div className="-mx-5 flex snap-x snap-mandatory gap-4 overflow-x-auto px-5 scrollbar-hide md:mx-0 md:grid md:grid-cols-3 md:overflow-visible md:px-0">
           {results.map((r, i) => (
-            <FadeIn key={r.industry} delay={i * 0.1}>
+            <FadeIn key={r.industry} delay={i * 0.1} className="snap-start shrink-0 w-[80%] sm:w-[55%] md:w-auto">
               <div className="flex flex-col rounded-3xl border border-line overflow-hidden bg-surface h-full">
                 {/* Image */}
                 <div className="relative h-44 overflow-hidden">

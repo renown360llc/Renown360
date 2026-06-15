@@ -1,5 +1,6 @@
 "use client";
 
+import { useState } from "react";
 import { X, Check } from "lucide-react";
 import { FadeIn } from "@/components/ui/FadeIn";
 import { SectionLabel } from "@/components/ui/SectionLabel";
@@ -21,10 +22,12 @@ const withUs = [
 ];
 
 export function WhyUsSection() {
+  const [active, setActive] = useState<"us" | "others">("us");
+
   return (
     <section className="bg-surface py-16 md:py-28">
       <div className="container-wide">
-        <FadeIn className="flex flex-col items-center gap-4 mb-10 md:mb-14 text-center">
+        <FadeIn className="flex flex-col items-center gap-4 mb-8 md:mb-14 text-center">
           <SectionLabel>Why choose us</SectionLabel>
           <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl text-ink max-w-2xl text-balance">
             The consulting partner enterprises call first
@@ -32,10 +35,26 @@ export function WhyUsSection() {
         </FadeIn>
 
         <FadeIn delay={0.1}>
+          {/* Mobile-only toggle — our advantages shown first */}
+          <div className="md:hidden grid grid-cols-2 gap-1 p-1 mb-5 rounded-full bg-ink/[0.06] border border-line">
+            <button
+              onClick={() => setActive("us")}
+              className={`py-2.5 rounded-full text-sm font-semibold transition-colors ${active === "us" ? "bg-primary text-white" : "text-ink/55"}`}
+            >
+              With Renown360
+            </button>
+            <button
+              onClick={() => setActive("others")}
+              className={`py-2.5 rounded-full text-sm font-semibold transition-colors ${active === "others" ? "bg-ink text-white" : "text-ink/55"}`}
+            >
+              Other Firms
+            </button>
+          </div>
+
           <div className="grid grid-cols-1 md:grid-cols-2 gap-3 md:gap-4 rounded-4xl overflow-hidden border border-line bg-line">
             {/* Other firms */}
-            <div className="bg-surface flex flex-col gap-5 p-6 sm:p-8 md:p-10">
-              <h3 className="font-serif text-xl sm:text-2xl text-ink/40">Other Firms</h3>
+            <div className={`bg-surface flex-col gap-5 p-6 sm:p-8 md:p-10 md:flex ${active === "others" ? "flex" : "hidden"}`}>
+              <h3 className="hidden md:block font-serif text-xl sm:text-2xl text-ink/40">Other Firms</h3>
               <ul className="flex flex-col gap-4">
                 {otherFirms.map((item) => (
                   <li key={item.title} className="flex gap-3">
@@ -52,8 +71,8 @@ export function WhyUsSection() {
             </div>
 
             {/* With Renown360 */}
-            <div className="bg-primary rounded-3xl flex flex-col gap-5 p-6 sm:p-8 md:p-10">
-              <h3 className="font-serif text-xl sm:text-2xl text-white">With Renown360</h3>
+            <div className={`bg-primary rounded-3xl flex-col gap-5 p-6 sm:p-8 md:p-10 md:flex ${active === "us" ? "flex" : "hidden"}`}>
+              <h3 className="hidden md:block font-serif text-xl sm:text-2xl text-white">With Renown360</h3>
               <ul className="flex flex-col gap-4">
                 {withUs.map((item) => (
                   <li key={item.title} className="flex gap-3">

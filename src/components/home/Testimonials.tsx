@@ -36,9 +36,9 @@ export function Testimonials() {
           </h2>
         </FadeIn>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+        <div className="-mx-5 flex snap-x snap-mandatory gap-4 overflow-x-auto px-5 scrollbar-hide md:mx-0 md:grid md:grid-cols-3 md:overflow-visible md:px-0">
           {testimonials.map((t, i) => (
-            <FadeIn key={t.name} delay={i * 0.1}>
+            <FadeIn key={t.name} delay={i * 0.1} className="snap-start shrink-0 w-[80%] sm:w-[55%] md:w-auto">
               <div className="flex flex-col gap-5 p-8 rounded-3xl bg-white border border-line h-full">
                 <div className="flex gap-1">
                   {[...Array(5)].map((_, j) => (
