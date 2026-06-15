@@ -49,8 +49,8 @@ export function HowWeEngage() {
             const isEven = i % 2 === 0;
 
             return (
-              <FadeIn key={step.number} delay={i * 0.08}>
-                <div className="relative grid grid-cols-1 md:grid-cols-2 gap-5 md:gap-0 pb-14 md:pb-20 last:pb-0 md:items-center">
+              <FadeIn key={step.number} delay={i * 0.08} className="pb-16 md:pb-20 last:pb-0">
+                <div className="relative grid grid-cols-1 md:grid-cols-2 gap-5 md:gap-0 md:items-center">
                   {/* Center number (desktop) */}
                   <div className="hidden md:flex absolute left-1/2 top-10 -translate-x-1/2 z-10 w-11 h-11 rounded-full bg-primary text-white items-center justify-center text-sm font-bold shadow-sm">
                     {step.number}
