@@ -55,9 +55,9 @@ export function ParallaxBand({ image, children, className = "" }: ParallaxBandPr
         <Image src={image} alt="" fill sizes="100vw" className="object-cover object-center" />
       </div>
 
-      {/* Brand + legibility overlays */}
-      <div className="absolute inset-0 bg-gradient-to-r from-primary-dark/92 via-primary/85 to-primary/70" />
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_70%_70%_at_50%_0%,rgba(255,255,255,0.08),transparent_60%)]" />
+      {/* Brand + legibility overlays — strong enough for white text */}
+      <div className="absolute inset-0 bg-primary/80" />
+      <div className="absolute inset-0 bg-gradient-to-t from-ink/60 via-primary/30 to-ink/40" />
 
       <div className="relative">{children}</div>
     </section>
