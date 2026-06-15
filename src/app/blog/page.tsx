@@ -19,7 +19,7 @@ const posts = [
     excerpt: "A practical guide to the pre-vetting model that lets Renown360 deliver qualified Java engineers in under 10 days for Fortune 500 engagements.",
     readTime: "5 min read",
     date: "April 2025",
-    image: "https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?auto=format&fit=crop&w=800&q=80",
+    image: "/images/photo-1573497019940-1c28c88b4f3e.jpg",
   },
   {
     slug: "cloud-migration-aws-hipaa",
@@ -28,7 +28,7 @@ const posts = [
     excerpt: "How our team migrated a major hospital network's clinical data to AWS with zero downtime and full HIPAA compliance — completed in 7 weeks.",
     readTime: "7 min read",
     date: "March 2025",
-    image: "https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?auto=format&fit=crop&w=800&q=80",
+    image: "/images/photo-1519494026892-80bbd2d6fd0d.jpg",
   },
   {
     slug: "sap-s4hana-rollout",
@@ -37,7 +37,7 @@ const posts = [
     excerpt: "Running a multi-site SAP implementation with minimal production disruption. The planning, execution, and post-go-live lessons from a manufacturing deployment.",
     readTime: "8 min read",
     date: "March 2025",
-    image: "https://images.unsplash.com/photo-1587293852726-70cdb56c2866?auto=format&fit=crop&w=800&q=80",
+    image: "/images/photo-1587293852726-70cdb56c2866.jpg",
   },
   {
     slug: "genai-enterprise-readiness",
@@ -46,7 +46,7 @@ const posts = [
     excerpt: "Beyond the hype — a structured approach to evaluating your data maturity, governance, and infrastructure before deploying LLMs in production.",
     readTime: "6 min read",
     date: "February 2025",
-    image: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=800&q=80",
+    image: "/images/photo-1451187580459-43490279c0fa.jpg",
   },
   {
     slug: "devops-finops-cloud-cost",
@@ -55,7 +55,7 @@ const posts = [
     excerpt: "Practical techniques our cloud architects use to reduce AWS/Azure costs by 20–35% without impacting engineering velocity.",
     readTime: "5 min read",
     date: "February 2025",
-    image: "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=800&q=80",
+    image: "/images/photo-1558494949-ef010cbdcc31.jpg",
   },
   {
     slug: "digital-transformation-cxo",
@@ -64,7 +64,7 @@ const posts = [
     excerpt: "The most common strategic mistakes we see — and how to reframe transformation programmes around measurable business outcomes, not technology adoption.",
     readTime: "6 min read",
     date: "January 2025",
-    image: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=800&q=80",
+    image: "/images/photo-1486406146926-c627a92ad1ab.jpg",
   },
 ];
 
@@ -84,7 +84,7 @@ export default function BlogPage() {
         label="Blog"
         title="Insights from the field"
         subtitle="Practical perspectives on enterprise IT consulting, staffing, cloud migration, and digital transformation — written by practitioners who do this work every day."
-        image="https://images.unsplash.com/photo-1499750310107-5fef28a66643?auto=format&fit=crop&w=1600&q=80"
+        image="/images/photo-1499750310107-5fef28a66643.jpg"
       />
 
       <section className="bg-white py-20 pb-28">

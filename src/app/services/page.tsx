@@ -30,7 +30,7 @@ export default function ServicesPage() {
         label="Services"
         title="Six practice areas. One trusted partner."
         subtitle="From staffing single engineers to leading full digital transformations — we cover the complete enterprise technology lifecycle with pre-vetted talent and proven delivery methodology."
-        image="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1600&q=80"
+        image="/images/photo-1551288049-bebda4e38f71.jpg"
       />
 
       {/* Services list */}

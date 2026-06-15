@@ -11,7 +11,7 @@ const cases = [
     challenge: "Needed 14 Java engineers in under two weeks for a critical trading platform modernisation.",
     result: "14 engineers placed, first consultant onboarded in 11 days. 14-month average retention.",
     metrics: ["14 engineers", "11 days", "14-month retention"],
-    image: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=800&q=80",
+    image: "/images/photo-1486406146926-c627a92ad1ab.jpg",
   },
   {
     industry: "Healthcare",
@@ -19,7 +19,7 @@ const cases = [
     challenge: "Legacy on-premise infrastructure needed HIPAA-compliant migration to AWS with zero downtime.",
     result: "40 TB migrated, 12 applications modernised. Go-live on week 7 with zero downtime incidents.",
     metrics: ["40 TB migrated", "12 apps modernised", "Zero downtime"],
-    image: "https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?auto=format&fit=crop&w=800&q=80",
+    image: "/images/photo-1519494026892-80bbd2d6fd0d.jpg",
   },
   {
     industry: "Manufacturing",
@@ -27,7 +27,7 @@ const cases = [
     challenge: "SAP S/4HANA rollout across 6 plants with minimal disruption to production schedules.",
     result: "All 6 plants live on schedule. 25% reduction in unplanned downtime within 90 days.",
     metrics: ["6 plants deployed", "On-time delivery", "25% less downtime"],
-    image: "https://images.unsplash.com/photo-1587293852726-70cdb56c2866?auto=format&fit=crop&w=800&q=80",
+    image: "/images/photo-1587293852726-70cdb56c2866.jpg",
   },
 ];
 

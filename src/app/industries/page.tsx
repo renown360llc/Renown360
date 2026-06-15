@@ -32,7 +32,7 @@ export default function IndustriesPage() {
         label="Industries"
         title="We speak your industry's language"
         subtitle="Domain expertise means understanding your regulatory environment, your toolchain, and the specific pressures your sector faces. We don't generalist our way through engagements."
-        image="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1600&q=80"
+        image="/images/photo-1486406146926-c627a92ad1ab.jpg"
       />
 
       {/* Industry cards */}

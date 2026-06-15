@@ -27,7 +27,7 @@ export default function AboutPage() {
         label="About Renown360"
         title="We cut the time between a brief and a productive consultant"
         subtitle="Renown360 is an IT consulting and staffing firm based in Durham, NC. We started in 2025 with one goal: reduce the friction enterprises face when they need skilled IT people fast. Not a general job board. Not a recruiter blasting CVs. A firm that screens consultants in advance, keeps them on bench, and places them within days."
-        image="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=1600&q=80"
+        image="/images/photo-1521737604893-d14cc237f11d.jpg"
         cta={{ label: "Work with us", href: "/contact" }}
       />
 
@@ -35,7 +35,7 @@ export default function AboutPage() {
         <div className="container-wide grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           <FadeIn direction="left" className="relative h-96 rounded-4xl overflow-hidden">
             <Image
-              src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=900&q=80"
+              src="/images/photo-1521737604893-d14cc237f11d.jpg"
               alt="Renown360 team"
               fill
               sizes="(max-width: 1024px) 100vw, 50vw" className="object-cover"

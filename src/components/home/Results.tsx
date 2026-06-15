@@ -13,7 +13,7 @@ const results = [
     metrics: ["14 engineers placed", "11 days to first hire", "14-month retention"],
     quote: "Three senior Java engineers placed in nine days. All three are still with us 14 months later. That retention rate is extraordinary for contract talent.",
     name: "VP of Engineering",
-    image: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=800&q=80",
+    image: "/images/photo-1486406146926-c627a92ad1ab.jpg",
   },
   {
     industry: "Healthcare",
@@ -22,7 +22,7 @@ const results = [
     metrics: ["40 TB migrated", "12 apps modernised", "Zero downtime"],
     quote: "They delivered on week 7. Not week 10, not week 12. Week 7, with zero downtime. I didn't think that timeline was realistic until it happened.",
     name: "Chief Technology Officer",
-    image: "https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?auto=format&fit=crop&w=800&q=80",
+    image: "/images/photo-1519494026892-80bbd2d6fd0d.jpg",
   },
   {
     industry: "Manufacturing",
@@ -31,7 +31,7 @@ const results = [
     metrics: ["6 plants live", "On-time delivery", "25% less downtime"],
     quote: "The delivery manager actually understood our SAP landscape. That alone saved us months of back-and-forth. It felt like they were part of our team.",
     name: "Director of IT",
-    image: "https://images.unsplash.com/photo-1587293852726-70cdb56c2866?auto=format&fit=crop&w=800&q=80",
+    image: "/images/photo-1587293852726-70cdb56c2866.jpg",
   },
 ];
 

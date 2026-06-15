@@ -18,7 +18,7 @@ const certifications = [
   "PMP", "CSM", "CISSP",
 ];
 
-const teamPhoto = "https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=1200&q=80";
+const teamPhoto = "/images/photo-1522071820081-009f0129c71c.jpg";
 
 export default function TeamPage() {
   return (
@@ -27,7 +27,7 @@ export default function TeamPage() {
         label="Our team"
         title="100+ certified enterprise consultants"
         subtitle="Our bench spans software engineers, cloud architects, data engineers, ERP consultants, and cybersecurity specialists — all pre-vetted, enterprise-ready, and available to deploy."
-        image="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?auto=format&fit=crop&w=1600&q=80"
+        image="/images/photo-1573497019940-1c28c88b4f3e.jpg"
       />
 
       {/* Team photo */}

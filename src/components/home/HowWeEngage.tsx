@@ -10,7 +10,7 @@ const steps = [
     days: "Days 1–3",
     title: "Discovery",
     desc: "We align on requirements, technology stack, culture fit, and timelines. One point of contact from day one, and a signed SOW before anything moves.",
-    image: "https://images.unsplash.com/photo-1556761175-b413da4baf72?auto=format&fit=crop&w=900&q=80",
+    image: "/images/photo-1556761175-b413da4baf72.jpg",
     objectPosition: "object-center",
   },
   {
@@ -18,7 +18,7 @@ const steps = [
     days: "Days 4–10",
     title: "Match",
     desc: "We shortlist 2–3 consultants from our active bench, matched to your brief. You interview and choose. No filler candidates, no pressure.",
-    image: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=900&q=80",
+    image: "/images/photo-1573496359142-b8d87734a5a2.jpg",
     objectPosition: "object-top",
   },
   {
@@ -26,7 +26,7 @@ const steps = [
     days: "Day 11+",
     title: "Deliver",
     desc: "Your consultant is onboarded and contributing from day one. Weekly check-ins keep the engagement on track for as long as you need them.",
-    image: "https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=900&q=80",
+    image: "/images/photo-1522071820081-009f0129c71c.jpg",
     objectPosition: "object-center",
   },
 ];

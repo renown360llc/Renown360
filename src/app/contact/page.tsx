@@ -28,7 +28,7 @@ export default function ContactPage() {
         label="Contact us"
         title="Let's talk about your next engagement"
         subtitle="Whether you need a single consultant or a full transformation team — we'll scope your requirements and have shortlisted candidates within the week."
-        image="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=1600&q=80"
+        image="/images/photo-1573496359142-b8d87734a5a2.jpg"
       />
 
       <section className="bg-white py-20">

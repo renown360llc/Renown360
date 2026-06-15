@@ -8,7 +8,7 @@ import { ParallaxBand } from "@/components/ui/ParallaxBand";
 export function CTASection() {
   return (
     <ParallaxBand
-      image="https://images.unsplash.com/photo-1556761175-b413da4baf72?auto=format&fit=crop&w=1600&q=80"
+      image="/images/photo-1556761175-b413da4baf72.jpg"
       className="text-white"
     >
       <div className="container-wide py-24 md:py-36">

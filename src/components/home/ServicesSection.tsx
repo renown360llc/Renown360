@@ -14,12 +14,12 @@ const iconMap: Record<string, React.ElementType> = {
 };
 
 const serviceImages = [
-  "https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?auto=format&fit=crop&w=900&q=80",
-  "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=900&q=80",
-  "https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=900&q=80",
-  "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=900&q=80",
-  "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=900&q=80",
-  "https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=900&q=80",
+  "/images/photo-1573497019940-1c28c88b4f3e.jpg",
+  "/images/photo-1558494949-ef010cbdcc31.jpg",
+  "/images/photo-1451187580459-43490279c0fa.jpg",
+  "/images/photo-1460925895917-afdab827c52f.jpg",
+  "/images/photo-1551288049-bebda4e38f71.jpg",
+  "/images/photo-1552664730-d307ca884978.jpg",
 ];
 
 const N = SERVICES.length;

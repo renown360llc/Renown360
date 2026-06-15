@@ -27,7 +27,7 @@ export default function CareersPage() {
         label="Careers"
         title="Work on enterprise challenges that matter"
         subtitle="We connect skilled IT professionals with Fortune 500 engagements across cloud, ERP, data, and software engineering. If you're exceptional at what you do, we have a place for you."
-        image="https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=1600&q=80"
+        image="/images/photo-1552664730-d307ca884978.jpg"
       />
 
       <section className="bg-white py-20">

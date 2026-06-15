@@ -24,7 +24,7 @@ export function BentoSection() {
           <FadeIn className="md:row-span-2">
             <div className="relative h-full min-h-[360px] rounded-3xl overflow-hidden">
               <Image
-                src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=900&q=80"
+                src="/images/photo-1497366216548-37526070297c.jpg"
                 alt="Modern enterprise office"
                 fill
                 className="object-cover"
