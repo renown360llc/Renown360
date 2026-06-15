@@ -50,48 +50,36 @@ export function HowWeEngage() {
 
             return (
               <FadeIn key={step.number} delay={i * 0.08}>
-                <div className="relative grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-0 pb-20 last:pb-0">
-                  {/* Center number */}
+                <div className="relative grid grid-cols-1 md:grid-cols-2 gap-5 md:gap-0 pb-14 md:pb-20 last:pb-0 md:items-center">
+                  {/* Center number (desktop) */}
                   <div className="hidden md:flex absolute left-1/2 top-10 -translate-x-1/2 z-10 w-11 h-11 rounded-full bg-primary text-white items-center justify-center text-sm font-bold shadow-sm">
                     {step.number}
                   </div>
 
-                  {/* Mobile number */}
-                  <div className="flex md:hidden items-center gap-3 mb-2">
-                    <div className="w-9 h-9 rounded-full bg-primary text-white flex items-center justify-center text-xs font-bold shrink-0">
-                      {step.number}
+                  {/* Text — always before the image in DOM (mobile stacking) */}
+                  <div
+                    className={`flex ${
+                      isEven ? "md:order-2 md:justify-start md:pl-16" : "md:order-1 md:justify-end md:pr-16"
+                    }`}
+                  >
+                    <div className="flex flex-col gap-3 md:max-w-sm">
+                      {/* Mobile number + days */}
+                      <div className="flex md:hidden items-center gap-3">
+                        <div className="w-9 h-9 rounded-full bg-primary text-white flex items-center justify-center text-xs font-bold shrink-0">
+                          {step.number}
+                        </div>
+                        <span className="text-xs font-semibold text-primary uppercase tracking-widest">{step.days}</span>
+                      </div>
+                      {/* Desktop days */}
+                      <span className="hidden md:block text-xs font-semibold uppercase tracking-widest text-primary">{step.days}</span>
+                      <h3 className="font-serif text-3xl md:text-4xl text-ink">{step.title}</h3>
+                      <p className="text-ink/60 text-base leading-relaxed">{step.desc}</p>
                     </div>
-                    <span className="text-xs font-semibold text-primary uppercase tracking-widest">{step.days}</span>
                   </div>
 
-                  {/* LEFT column */}
-                  <div className={`md:pr-16 flex items-center ${isEven ? "" : "md:order-1"}`}>
-                    {isEven ? (
-                      <div className="relative w-full h-64 md:h-80 rounded-3xl overflow-hidden">
-                        <Image src={step.image} alt={step.title} fill sizes="(max-width: 768px) 100vw, 50vw" className={`object-cover ${step.objectPosition}`} />
-                      </div>
-                    ) : (
-                      <div className="flex flex-col gap-4 md:max-w-sm md:ml-auto">
-                        <span className="hidden md:block text-xs font-semibold uppercase tracking-widest text-primary">{step.days}</span>
-                        <h3 className="font-serif text-3xl md:text-4xl text-ink">{step.title}</h3>
-                        <p className="text-ink/60 text-base leading-relaxed">{step.desc}</p>
-                      </div>
-                    )}
-                  </div>
-
-                  {/* RIGHT column */}
-                  <div className={`md:pl-16 flex items-center ${isEven ? "" : "md:order-2"}`}>
-                    {isEven ? (
-                      <div className="flex flex-col gap-4 md:max-w-sm">
-                        <span className="hidden md:block text-xs font-semibold uppercase tracking-widest text-primary">{step.days}</span>
-                        <h3 className="font-serif text-3xl md:text-4xl text-ink">{step.title}</h3>
-                        <p className="text-ink/60 text-base leading-relaxed">{step.desc}</p>
-                      </div>
-                    ) : (
-                      <div className="relative w-full h-64 md:h-80 rounded-3xl overflow-hidden">
-                        <Image src={step.image} alt={step.title} fill sizes="(max-width: 768px) 100vw, 50vw" className={`object-cover ${step.objectPosition}`} />
-                      </div>
-                    )}
+                  {/* Image */}
+                  <div className={`relative w-full h-56 sm:h-64 md:h-80 rounded-3xl overflow-hidden ${isEven ? "md:order-1" : "md:order-2"}`}>
+                    <Image src={step.image} alt={step.title} fill sizes="(max-width: 768px) 100vw, 50vw" className={`object-cover ${step.objectPosition}`} />
                   </div>
                 </div>
               </FadeIn>
