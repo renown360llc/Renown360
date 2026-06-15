@@ -12,6 +12,7 @@
 
   html, body {
     scroll-snap-type: none;
+    overflow-x: hidden;
   }
 
   body {
