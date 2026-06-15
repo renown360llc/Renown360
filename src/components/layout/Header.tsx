@@ -3,6 +3,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { useState, useEffect } from "react";
+import { usePathname } from "next/navigation";
 import { Menu, X } from "lucide-react";
 import { NAV_LINKS, SITE } from "@/lib/constants";
 import { cn } from "@/lib/utils";
@@ -10,9 +11,14 @@ import { cn } from "@/lib/utils";
 export function Header() {
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const pathname = usePathname();
+
+  // Light nav while floating over the homepage's dark full-bleed hero.
+  const overlay = pathname === "/" && !scrolled;
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 12);
+    onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
@@ -37,7 +43,7 @@ export function Header() {
             priority
             className="h-9 w-9 object-contain"
           />
-          <span className="font-serif text-xl text-ink">{SITE.name}</span>
+          <span className={cn("font-serif text-xl", overlay ? "text-white" : "text-ink")}>{SITE.name}</span>
         </Link>
 
         {/* Desktop nav */}
@@ -46,7 +52,12 @@ export function Header() {
             <Link
               key={link.href}
               href={link.href}
-              className="px-3.5 py-2 text-sm font-medium text-ink/70 hover:text-ink rounded-lg hover:bg-primary-light transition-colors duration-150"
+              className={cn(
+                "px-3.5 py-2 text-sm font-medium rounded-lg transition-colors duration-150",
+                overlay
+                  ? "text-white/80 hover:text-white hover:bg-white/10"
+                  : "text-ink/70 hover:text-ink hover:bg-primary-light"
+              )}
             >
               {link.label}
             </Link>
@@ -57,7 +68,12 @@ export function Header() {
         <div className="hidden lg:block">
           <Link
             href="/contact"
-            className="px-5 py-2.5 text-sm font-semibold bg-primary text-white rounded-full hover:bg-primary-dark transition-colors duration-150"
+            className={cn(
+              "px-5 py-2.5 text-sm font-semibold rounded-full transition-colors duration-150",
+              overlay
+                ? "bg-white text-primary hover:bg-surface"
+                : "bg-primary text-white hover:bg-primary-dark"
+            )}
           >
             Get Started
           </Link>
@@ -65,7 +81,10 @@ export function Header() {
 
         {/* Mobile toggle */}
         <button
-          className="lg:hidden p-2 rounded-lg text-ink hover:bg-primary-light transition-colors"
+          className={cn(
+            "lg:hidden p-2 rounded-lg transition-colors",
+            overlay ? "text-white hover:bg-white/10" : "text-ink hover:bg-primary-light"
+          )}
           onClick={() => setOpen(!open)}
           aria-label="Toggle menu"
         >
