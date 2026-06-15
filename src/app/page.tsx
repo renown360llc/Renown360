@@ -4,7 +4,6 @@ import { Marquee } from "@/components/home/Marquee";
 import { WhyUsSection } from "@/components/home/WhyUsSection";
 import { ServicesSection } from "@/components/home/ServicesSection";
 import { HowWeEngage } from "@/components/home/HowWeEngage";
-import { StatementBand } from "@/components/home/StatementBand";
 import { Results } from "@/components/home/Results";
 import { CaseStudies } from "@/components/home/CaseStudies";
 import { Testimonials } from "@/components/home/Testimonials";
@@ -25,7 +24,6 @@ export default function HomePage() {
       <WhyUsSection />
       <ServicesSection />
       <HowWeEngage />
-      <StatementBand />
       <Results />
       <CaseStudies />
       <Testimonials />
