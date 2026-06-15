@@ -14,7 +14,7 @@ export function Header() {
   const pathname = usePathname();
 
   // Routes whose page begins with a dark hero (green/photo) the nav floats over.
-  const DARK_HERO_ROUTES = ["/", "/services", "/industries", "/about", "/team", "/careers", "/contact"];
+  const DARK_HERO_ROUTES = ["/", "/services", "/industries", "/about", "/team", "/careers", "/contact", "/blog"];
   const overlay = DARK_HERO_ROUTES.includes(pathname) && !scrolled;
 
   useEffect(() => {
