@@ -3,6 +3,7 @@ import Link from "next/link";
 import { ArrowRight, Landmark, HeartPulse, Factory, ShoppingBag, Radio, Building2 } from "lucide-react";
 import { SectionLabel } from "@/components/ui/SectionLabel";
 import { FadeIn } from "@/components/ui/FadeIn";
+import { PageHero } from "@/components/ui/PageHero";
 import { INDUSTRIES } from "@/lib/constants";
 
 export const metadata: Metadata = { title: "Industries" };
@@ -23,22 +24,12 @@ const results = [
 export default function IndustriesPage() {
   return (
     <>
-      <section className="bg-surface pt-32 pb-20">
-        <div className="container-wide flex flex-col gap-6 max-w-3xl">
-          <FadeIn><SectionLabel>Industries</SectionLabel></FadeIn>
-          <FadeIn delay={0.07}>
-            <h1 className="font-serif text-4xl sm:text-5xl md:text-6xl text-ink leading-[1.1] text-balance">
-              We speak your industry&apos;s language
-            </h1>
-          </FadeIn>
-          <FadeIn delay={0.14}>
-            <p className="text-ink/60 text-lg leading-relaxed max-w-2xl">
-              Domain expertise means understanding your regulatory environment, your toolchain,
-              and the specific pressures your sector faces. We don&apos;t generalist our way through engagements.
-            </p>
-          </FadeIn>
-        </div>
-      </section>
+      <PageHero
+        label="Industries"
+        title="We speak your industry's language"
+        subtitle="Domain expertise means understanding your regulatory environment, your toolchain, and the specific pressures your sector faces. We don't generalist our way through engagements."
+        image="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1600&q=80"
+      />
 
       {/* Industry cards */}
       <section className="bg-white py-20">

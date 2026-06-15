@@ -2,8 +2,8 @@
 
 import { useState } from "react";
 import { Mail, Phone, MapPin, Clock, Send } from "lucide-react";
-import { SectionLabel } from "@/components/ui/SectionLabel";
 import { FadeIn } from "@/components/ui/FadeIn";
+import { PageHero } from "@/components/ui/PageHero";
 import { SITE } from "@/lib/constants";
 
 export default function ContactPage() {
@@ -24,22 +24,12 @@ export default function ContactPage() {
 
   return (
     <>
-      <section className="bg-surface pt-32 pb-20">
-        <div className="container-wide flex flex-col gap-6 max-w-3xl">
-          <FadeIn><SectionLabel>Contact us</SectionLabel></FadeIn>
-          <FadeIn delay={0.07}>
-            <h1 className="font-serif text-4xl sm:text-5xl md:text-6xl text-ink leading-[1.1] text-balance">
-              Let&apos;s talk about your next engagement
-            </h1>
-          </FadeIn>
-          <FadeIn delay={0.14}>
-            <p className="text-ink/60 text-lg leading-relaxed">
-              Whether you need a single consultant or a full transformation team — we&apos;ll scope
-              your requirements and have shortlisted candidates within the week.
-            </p>
-          </FadeIn>
-        </div>
-      </section>
+      <PageHero
+        label="Contact us"
+        title="Let's talk about your next engagement"
+        subtitle="Whether you need a single consultant or a full transformation team — we'll scope your requirements and have shortlisted candidates within the week."
+        image="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=1600&q=80"
+      />
 
       <section className="bg-white py-20">
         <div className="container-wide grid grid-cols-1 lg:grid-cols-5 gap-10">

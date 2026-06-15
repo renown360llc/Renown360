@@ -4,6 +4,7 @@ import Link from "next/link";
 import { ArrowRight, Shield, Target, Zap, Globe } from "lucide-react";
 import { SectionLabel } from "@/components/ui/SectionLabel";
 import { FadeIn } from "@/components/ui/FadeIn";
+import { PageHero } from "@/components/ui/PageHero";
 import { VALUES, STATS } from "@/lib/constants";
 
 export const metadata: Metadata = { title: "About" };
@@ -18,25 +19,13 @@ const milestones = [
 export default function AboutPage() {
   return (
     <>
-      <section className="bg-surface pt-32 pb-20">
-        <div className="container-wide">
-          <FadeIn className="flex flex-col gap-6 max-w-3xl">
-            <SectionLabel>About Renown360</SectionLabel>
-            <h1 className="font-serif text-4xl sm:text-5xl md:text-6xl text-ink leading-[1.1] text-balance">
-              We cut the time between a brief and a productive consultant
-            </h1>
-            <p className="text-ink/60 text-lg leading-relaxed max-w-2xl">
-              Renown360 is an IT consulting and staffing firm based in Durham, NC. We started in 2025 with one goal: reduce the friction enterprises face when they need skilled IT people fast. Not a general job board. Not a recruiter blasting CVs. A firm that screens consultants in advance, keeps them on bench, and places them within days.
-            </p>
-            <Link
-              href="/contact"
-              className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-primary text-white font-semibold text-sm hover:bg-primary-dark transition-colors w-fit"
-            >
-              Work with us <ArrowRight size={14} />
-            </Link>
-          </FadeIn>
-        </div>
-      </section>
+      <PageHero
+        label="About Renown360"
+        title="We cut the time between a brief and a productive consultant"
+        subtitle="Renown360 is an IT consulting and staffing firm based in Durham, NC. We started in 2025 with one goal: reduce the friction enterprises face when they need skilled IT people fast. Not a general job board. Not a recruiter blasting CVs. A firm that screens consultants in advance, keeps them on bench, and places them within days."
+        image="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=1600&q=80"
+        cta={{ label: "Work with us", href: "/contact" }}
+      />
 
       <section className="bg-white py-20">
         <div className="container-wide grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">

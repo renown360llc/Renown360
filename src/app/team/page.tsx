@@ -4,6 +4,7 @@ import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import { SectionLabel } from "@/components/ui/SectionLabel";
 import { FadeIn } from "@/components/ui/FadeIn";
+import { PageHero } from "@/components/ui/PageHero";
 
 export const metadata: Metadata = { title: "Team" };
 
@@ -18,22 +19,12 @@ const teamPhoto = "https://images.unsplash.com/photo-1522071820081-009f0129c71c?
 export default function TeamPage() {
   return (
     <>
-      <section className="bg-surface pt-32 pb-20">
-        <div className="container-wide flex flex-col gap-6 max-w-3xl">
-          <FadeIn><SectionLabel>Our team</SectionLabel></FadeIn>
-          <FadeIn delay={0.07}>
-            <h1 className="font-serif text-4xl sm:text-5xl md:text-6xl text-ink leading-[1.1] text-balance">
-              100+ certified enterprise consultants
-            </h1>
-          </FadeIn>
-          <FadeIn delay={0.14}>
-            <p className="text-ink/60 text-lg leading-relaxed max-w-2xl">
-              Our bench spans software engineers, cloud architects, data engineers, ERP consultants,
-              and cybersecurity specialists — all pre-vetted, enterprise-ready, and available to deploy.
-            </p>
-          </FadeIn>
-        </div>
-      </section>
+      <PageHero
+        label="Our team"
+        title="100+ certified enterprise consultants"
+        subtitle="Our bench spans software engineers, cloud architects, data engineers, ERP consultants, and cybersecurity specialists — all pre-vetted, enterprise-ready, and available to deploy."
+        image="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?auto=format&fit=crop&w=1600&q=80"
+      />
 
       {/* Team photo */}
       <section className="bg-white py-10">

@@ -3,6 +3,7 @@ import Link from "next/link";
 import { ArrowRight, Users, RefreshCw, Cloud, LayoutGrid, BarChart2, Zap, Check } from "lucide-react";
 import { SectionLabel } from "@/components/ui/SectionLabel";
 import { FadeIn } from "@/components/ui/FadeIn";
+import { PageHero } from "@/components/ui/PageHero";
 import { SERVICES } from "@/lib/constants";
 
 export const metadata: Metadata = { title: "Services" };
@@ -21,26 +22,12 @@ const engagementModels = [
 export default function ServicesPage() {
   return (
     <>
-      {/* Hero */}
-      <section className="bg-surface pt-32 pb-20">
-        <div className="container-wide flex flex-col gap-6 max-w-3xl">
-          <FadeIn>
-            <SectionLabel>Services</SectionLabel>
-          </FadeIn>
-          <FadeIn delay={0.07}>
-            <h1 className="font-serif text-4xl sm:text-5xl md:text-6xl text-ink leading-[1.1] text-balance">
-              Six practice areas. One trusted partner.
-            </h1>
-          </FadeIn>
-          <FadeIn delay={0.14}>
-            <p className="text-ink/60 text-lg leading-relaxed max-w-2xl">
-              From staffing single engineers to leading full digital transformations — we cover
-              the complete enterprise technology lifecycle with pre-vetted talent and proven
-              delivery methodology.
-            </p>
-          </FadeIn>
-        </div>
-      </section>
+      <PageHero
+        label="Services"
+        title="Six practice areas. One trusted partner."
+        subtitle="From staffing single engineers to leading full digital transformations — we cover the complete enterprise technology lifecycle with pre-vetted talent and proven delivery methodology."
+        image="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1600&q=80"
+      />
 
       {/* Services list */}
       <section className="bg-white py-20">

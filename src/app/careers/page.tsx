@@ -4,6 +4,7 @@ import { useState } from "react";
 import { MapPin, Briefcase, ArrowRight } from "lucide-react";
 import { SectionLabel } from "@/components/ui/SectionLabel";
 import { FadeIn } from "@/components/ui/FadeIn";
+import { PageHero } from "@/components/ui/PageHero";
 import { OPEN_ROLES, SITE } from "@/lib/constants";
 
 const perks = [
@@ -22,22 +23,12 @@ export default function CareersPage() {
 
   return (
     <>
-      <section className="bg-surface pt-32 pb-20">
-        <div className="container-wide flex flex-col gap-6 max-w-3xl">
-          <FadeIn><SectionLabel>Careers</SectionLabel></FadeIn>
-          <FadeIn delay={0.07}>
-            <h1 className="font-serif text-4xl sm:text-5xl md:text-6xl text-ink leading-[1.1] text-balance">
-              Work on enterprise challenges that matter
-            </h1>
-          </FadeIn>
-          <FadeIn delay={0.14}>
-            <p className="text-ink/60 text-lg leading-relaxed max-w-2xl">
-              We connect skilled IT professionals with Fortune 500 engagements across cloud, ERP, data,
-              and software engineering. If you&apos;re exceptional at what you do, we have a place for you.
-            </p>
-          </FadeIn>
-        </div>
-      </section>
+      <PageHero
+        label="Careers"
+        title="Work on enterprise challenges that matter"
+        subtitle="We connect skilled IT professionals with Fortune 500 engagements across cloud, ERP, data, and software engineering. If you're exceptional at what you do, we have a place for you."
+        image="https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=1600&q=80"
+      />
 
       <section className="bg-white py-20">
         <div className="container-wide">

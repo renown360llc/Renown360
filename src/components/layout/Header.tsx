@@ -13,8 +13,9 @@ export function Header() {
   const [scrolled, setScrolled] = useState(false);
   const pathname = usePathname();
 
-  // Light nav while floating over the homepage's dark full-bleed hero.
-  const overlay = pathname === "/" && !scrolled;
+  // Routes whose page begins with a dark hero (green/photo) the nav floats over.
+  const DARK_HERO_ROUTES = ["/", "/services", "/industries", "/about", "/team", "/careers", "/contact"];
+  const overlay = DARK_HERO_ROUTES.includes(pathname) && !scrolled;
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 12);
