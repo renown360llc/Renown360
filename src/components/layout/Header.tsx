@@ -41,7 +41,7 @@ export function Header() {
             width={40}
             height={40}
             priority
-            className="h-9 w-9 object-contain"
+            className={cn("h-9 w-9 object-contain", overlay && "brightness-0 invert")}
           />
           <span className={cn("font-serif text-xl", overlay ? "text-white" : "text-ink")}>{SITE.name}</span>
         </Link>
