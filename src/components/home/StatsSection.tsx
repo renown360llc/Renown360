@@ -36,7 +36,7 @@ export function StatsSection() {
             The numbers
           </h2>
           <p className="text-white/60 mt-2 text-sm sm:text-base max-w-lg mx-auto">
-            Five years of focused delivery across enterprise technology.
+            Focused delivery across enterprise technology, from day one.
           </p>
         </FadeIn>
         <div className="grid grid-cols-2 md:grid-cols-4 gap-px bg-white/10 rounded-2xl md:rounded-3xl overflow-hidden border border-white/10">

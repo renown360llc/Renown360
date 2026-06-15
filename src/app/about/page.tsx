@@ -11,12 +11,8 @@ export const metadata: Metadata = { title: "About" };
 const iconMap: Record<string, React.ElementType> = { Shield, Target, Zap, Globe };
 
 const milestones = [
-  { year: "2020", event: "Founded in Durham, NC with a focus on enterprise IT staffing." },
-  { year: "2021", event: "First Fortune 500 client: Java engineering for a top-five investment bank." },
-  { year: "2022", event: "Added cloud, ERP, and data analytics as dedicated practice areas." },
-  { year: "2023", event: "Crossed 50 active consultants and introduced multi-currency billing." },
-  { year: "2024", event: "Added nearshore delivery and passed 50 enterprise clients." },
-  { year: "2025", event: "100+ active consultants. Six practice areas. Clients in four countries." },
+  { year: "2025", event: "Founded in Durham, NC, with a focus on enterprise IT staffing and consulting — built around a pre-screened, bench-ready model." },
+  { year: "2026", event: "Scaling fast: 100+ active consultants across six practice areas, serving enterprise clients in four countries." },
 ];
 
 export default function AboutPage() {
@@ -30,7 +26,7 @@ export default function AboutPage() {
               We cut the time between a brief and a productive consultant
             </h1>
             <p className="text-ink/60 text-lg leading-relaxed max-w-2xl">
-              Renown360 is an IT consulting and staffing firm based in Durham, NC. We started in 2020 with one goal: reduce the friction enterprises face when they need skilled IT people fast. Not a general job board. Not a recruiter blasting CVs. A firm that screens consultants in advance, keeps them on bench, and places them within days.
+              Renown360 is an IT consulting and staffing firm based in Durham, NC. We started in 2025 with one goal: reduce the friction enterprises face when they need skilled IT people fast. Not a general job board. Not a recruiter blasting CVs. A firm that screens consultants in advance, keeps them on bench, and places them within days.
             </p>
             <Link
               href="/contact"
