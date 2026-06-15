@@ -4,7 +4,7 @@ import { Marquee } from "@/components/home/Marquee";
 import { WhyUsSection } from "@/components/home/WhyUsSection";
 import { ServicesSection } from "@/components/home/ServicesSection";
 import { HowWeEngage } from "@/components/home/HowWeEngage";
-import { StatsSection } from "@/components/home/StatsSection";
+import { StatementBand } from "@/components/home/StatementBand";
 import { Results } from "@/components/home/Results";
 import { CaseStudies } from "@/components/home/CaseStudies";
 import { Testimonials } from "@/components/home/Testimonials";
@@ -25,7 +25,7 @@ export default function HomePage() {
       <WhyUsSection />
       <ServicesSection />
       <HowWeEngage />
-      <StatsSection />
+      <StatementBand />
       <Results />
       <CaseStudies />
       <Testimonials />
