@@ -33,8 +33,11 @@ export function Hero() {
       {/* Photo bleeds to the right edge on desktop */}
       <div className="hidden lg:block absolute top-0 right-0 bottom-0 w-[46%]">
         <Image src={heroImg} alt="Enterprise consulting team" fill sizes="46vw" className="object-cover object-center animate-kenburns" priority />
-        {/* feather only the photo's left edge into the green */}
-        <div className="absolute inset-0 bg-gradient-to-r from-primary via-transparent to-transparent" />
+        {/* short clean feather on the photo's left edge into the green */}
+        <div
+          className="absolute inset-0"
+          style={{ background: "linear-gradient(to right, #1a4c40 0%, rgba(26,76,64,0.6) 10%, transparent 26%)" }}
+        />
       </div>
 
       {/* Text */}
