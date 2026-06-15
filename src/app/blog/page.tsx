@@ -5,7 +5,11 @@ import { ArrowRight, Clock } from "lucide-react";
 import { FadeIn } from "@/components/ui/FadeIn";
 import { PageHero } from "@/components/ui/PageHero";
 
-export const metadata: Metadata = { title: "Blog" };
+export const metadata: Metadata = {
+  title: "Blog",
+  description:
+    "Practical perspectives on enterprise IT consulting, staffing, cloud migration, ERP, and digital transformation — from practitioners who do the work.",
+};
 
 const posts = [
   {

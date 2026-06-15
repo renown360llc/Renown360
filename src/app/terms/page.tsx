@@ -1,7 +1,10 @@
 import type { Metadata } from "next";
 import { SITE } from "@/lib/constants";
 
-export const metadata: Metadata = { title: "Terms of Service" };
+export const metadata: Metadata = {
+  title: "Terms of Service",
+  description: "The terms governing your use of the Renown360 website and services.",
+};
 
 export default function TermsPage() {
   return (

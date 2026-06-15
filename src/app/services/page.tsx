@@ -6,7 +6,11 @@ import { FadeIn } from "@/components/ui/FadeIn";
 import { PageHero } from "@/components/ui/PageHero";
 import { SERVICES } from "@/lib/constants";
 
-export const metadata: Metadata = { title: "Services" };
+export const metadata: Metadata = {
+  title: "Services",
+  description:
+    "Enterprise IT consulting and staffing across cloud, ERP, data, and software engineering — pre-vetted consultants and proven delivery, placed in under 10 days.",
+};
 
 const iconMap: Record<string, React.ElementType> = {
   Users, RefreshCw, Cloud, LayoutGrid, BarChart2, Zap,

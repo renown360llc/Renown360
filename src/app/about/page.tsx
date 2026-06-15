@@ -7,7 +7,11 @@ import { FadeIn } from "@/components/ui/FadeIn";
 import { PageHero } from "@/components/ui/PageHero";
 import { VALUES, STATS } from "@/lib/constants";
 
-export const metadata: Metadata = { title: "About" };
+export const metadata: Metadata = {
+  title: "About",
+  description:
+    "Renown360 is a Durham, NC IT consulting and staffing firm. We screen consultants in advance, keep them on bench, and place them within 10 days.",
+};
 
 const iconMap: Record<string, React.ElementType> = { Shield, Target, Zap, Globe };
 

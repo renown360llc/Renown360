@@ -97,7 +97,6 @@ export function ServicesSection() {
                 alt={SERVICES[ri].title}
                 fill
                 sizes="(max-width: 640px) calc(100vw - 40px), (max-width: 1024px) 500px, 560px" className="object-cover"
-                priority={ri === 0}
               />
               <div className="absolute inset-0 bg-gradient-to-t from-ink/90 via-ink/30 to-transparent" />
               <div className="absolute bottom-0 left-0 right-0 p-5 sm:p-7 flex flex-col gap-2">

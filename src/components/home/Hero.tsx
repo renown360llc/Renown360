@@ -45,7 +45,7 @@ export function Hero() {
         <div className="relative container-wide pt-32 lg:pt-36 pb-16 lg:pb-24 min-h-[80vh] flex flex-col justify-center">
           {/* Mobile image */}
           <div className="lg:hidden relative w-full h-52 sm:h-64 rounded-2xl overflow-hidden mb-8">
-            <Image src={heroImg} alt="Enterprise consulting team" fill sizes="100vw" className="object-cover object-center animate-kenburns" priority />
+            <Image src={heroImg} alt="Enterprise consulting team" fill sizes="100vw" className="object-cover object-center animate-kenburns" />
           </div>
 
           <motion.div

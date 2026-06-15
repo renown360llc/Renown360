@@ -1,7 +1,10 @@
 import type { Metadata } from "next";
 import { SITE } from "@/lib/constants";
 
-export const metadata: Metadata = { title: "Privacy Policy" };
+export const metadata: Metadata = {
+  title: "Privacy Policy",
+  description: "How Renown360 collects, uses, and protects your personal information.",
+};
 
 export default function PrivacyPage() {
   return (

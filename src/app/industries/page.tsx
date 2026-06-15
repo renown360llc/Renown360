@@ -6,7 +6,11 @@ import { FadeIn } from "@/components/ui/FadeIn";
 import { PageHero } from "@/components/ui/PageHero";
 import { INDUSTRIES } from "@/lib/constants";
 
-export const metadata: Metadata = { title: "Industries" };
+export const metadata: Metadata = {
+  title: "Industries",
+  description:
+    "Domain-specific IT consulting for financial services, healthcare, manufacturing, retail, telecom, and government — built around each sector's regulations and toolchain.",
+};
 
 const iconMap: Record<string, React.ElementType> = {
   Landmark, HeartPulse, Factory, ShoppingBag, Radio, Building2,

@@ -6,7 +6,11 @@ import { SectionLabel } from "@/components/ui/SectionLabel";
 import { FadeIn } from "@/components/ui/FadeIn";
 import { PageHero } from "@/components/ui/PageHero";
 
-export const metadata: Metadata = { title: "Team" };
+export const metadata: Metadata = {
+  title: "Team",
+  description:
+    "100+ certified enterprise consultants — software engineers, cloud architects, data engineers, ERP and cybersecurity specialists, pre-vetted and ready to deploy.",
+};
 
 const certifications = [
   "AWS Solutions Architect", "Azure Administrator", "Google Cloud Professional",
